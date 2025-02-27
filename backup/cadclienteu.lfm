@@ -1,0 +1,23 @@
+inherited cadCliente: TcadCliente
+  Left = 771
+  Top = 150
+  Caption = 'Cadastro do Cliente'
+  inherited PageControl1: TPageControl
+    ActivePage = tsPesquisar
+    TabIndex = 0
+  end
+  object DataSource1: TDataSource[1]
+    Left = 376
+    Top = 32
+  end
+  object ZQuery1: TZQuery[2]
+    Params = <>
+    Left = 448
+    Top = 32
+  end
+  object ZUpdateSQL1: TZUpdateSQL[3]
+    UseSequenceFieldForRefreshSQL = False
+    Left = 520
+    Top = 32
+  end
+end

@@ -1,0 +1,23 @@
+object DataModuleF: TDataModuleF
+  OldCreateOrder = False
+  Height = 295
+  HorizontalOffset = 696
+  VerticalOffset = 198
+  Width = 282
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    Properties.Strings = (
+      'RawStringEncoding=DB_CP'
+    )
+    Connected = True
+    DisableSavepoints = False
+    HostName = 'localhost'
+    Port = 5432
+    Database = 'postgres'
+    User = 'postgres'
+    Password = '12345'
+    Protocol = 'postgresql'
+    Left = 112
+    Top = 32
+  end
+end

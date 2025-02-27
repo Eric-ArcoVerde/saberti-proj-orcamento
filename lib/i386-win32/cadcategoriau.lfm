@@ -1,0 +1,170 @@
+inherited cadCategoriaF: TcadCategoriaF
+  Left = 419
+  Top = 140
+  Caption = 'Cadastro de Categoria'
+  OnClose = FormClose
+  OnShow = FormShow
+  inherited PageControl1: TPageControl
+    ActivePage = tsCadastro
+    TabIndex = 1
+    OnChanging = PageControl1Changing
+    inherited tsPesquisar: TTabSheet
+      inherited Panel1: TPanel
+        inherited btnPesq: TSpeedButton
+          OnClick = btnPesqClick
+        end
+      end
+      inherited Panel2: TPanel
+        TabOrder = 2
+        inherited btnNovo: TBitBtn
+          OnClick = btnNovoClick
+        end
+      end
+      inherited DBGrid1: TDBGrid
+        Columns = <        
+          item
+            Alignment = taCenter
+            PickList.Strings = (            )
+            Title.Alignment = taCenter
+            Title.Font.Style = [fsBold]
+            Title.Caption = 'ID'
+            FieldName = 'categoriaprodutoid'
+          end        
+          item
+            Alignment = taCenter
+            PickList.Strings = (            )
+            Title.Alignment = taCenter
+            Title.Font.Style = [fsBold]
+            Title.Caption = 'Categoria'
+            Width = 125
+            FieldName = 'ds_categoria_produto'
+          end>
+        DataSource = dsCategorias
+        TabOrder = 1
+      end
+    end
+    inherited tsCadastro: TTabSheet
+      inherited Panel3: TPanel
+        TabOrder = 2
+        inherited btnGravar: TBitBtn
+          OnClick = btnGravarClick
+        end
+        inherited btnEditar: TBitBtn
+          OnClick = btnEditarClick
+        end
+        inherited btnCancelar: TBitBtn
+          OnClick = btnCancelarClick
+        end
+        inherited btnExcluir: TBitBtn
+          OnClick = btnExcluirClick
+        end
+      end
+      object Label2: TLabel[1]
+        Left = 64
+        Height = 15
+        Top = 28
+        Width = 14
+        Caption = 'ID:'
+      end
+      object Label3: TLabel[2]
+        Left = 24
+        Height = 15
+        Top = 60
+        Width = 54
+        Caption = 'Descrição:'
+      end
+      object edtID: TDBEdit[3]
+        Left = 90
+        Height = 23
+        Top = 24
+        Width = 46
+        DataField = 'categoriaprodutoid'
+        DataSource = dsCategorias
+        Alignment = taRightJustify
+        Color = clSilver
+        MaxLength = 0
+        TabOrder = 0
+      end
+      object edtDesc: TDBEdit[4]
+        Left = 90
+        Height = 23
+        Top = 56
+        Width = 104
+        DataField = 'ds_categoria_produto'
+        DataSource = dsCategorias
+        MaxLength = 0
+        TabOrder = 1
+      end
+    end
+  end
+  object dsCategorias: TDataSource[1]
+    DataSet = zqCategorias
+    Left = 368
+    Top = 40
+  end
+  object zqCategorias: TZQuery[2]
+    SortedFields = 'categoriaprodutoid'
+    Connection = DataModuleF.ZConnection1
+    UpdateObject = zuCategorias
+    SQL.Strings = (
+      'select * from categoria_produto'
+      'order by categoriaprodutoid'
+    )
+    Params = <>
+    IndexFieldNames = 'categoriaprodutoid Asc'
+    Left = 448
+    Top = 40
+    object zqCategoriascategoriaprodutoid: TZIntegerField
+      FieldKind = fkData
+      FieldName = 'categoriaprodutoid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zqCategoriasds_categoria_produto: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'ds_categoria_produto'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 50
+    end
+  end
+  object zuCategorias: TZUpdateSQL[3]
+    DeleteSQL.Strings = (
+      'DELETE FROM categoria_produto'
+      'WHERE'
+      '  categoria_produto.categoriaprodutoid = :OLD_categoriaprodutoid'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO categoria_produto'
+      '  (categoriaprodutoid, ds_categoria_produto)'
+      'VALUES'
+      '  (:categoriaprodutoid, :ds_categoria_produto)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE categoria_produto SET'
+      '  categoriaprodutoid = :categoriaprodutoid,'
+      '  ds_categoria_produto = :ds_categoria_produto'
+      'WHERE'
+      '  categoria_produto.categoriaprodutoid = :OLD_categoriaprodutoid'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    Left = 520
+    Top = 40
+    ParamData = <    
+      item
+        Name = 'categoriaprodutoid'
+      end    
+      item
+        Name = 'ds_categoria_produto'
+      end    
+      item
+        Name = 'OLD_categoriaprodutoid'
+      end>
+  end
+end

@@ -1,0 +1,51 @@
+inherited cadCliente: TcadCliente
+  Left = 479
+  Top = 142
+  Caption = 'Cadastro do Cliente'
+  inherited PageControl1: TPageControl
+    inherited tsCadastro: TTabSheet
+      object Label2: TLabel[1]
+        Left = 104
+        Height = 15
+        Top = 40
+        Width = 14
+        Caption = 'ID:'
+      end
+      object Label3: TLabel[2]
+        Left = 40
+        Height = 15
+        Top = 72
+        Width = 82
+        Caption = 'Tipo de Cliente:'
+      end
+      object Label4: TLabel[3]
+        Left = 32
+        Height = 15
+        Top = 112
+        Width = 93
+        Caption = 'Nome do Cliente:'
+      end
+      object Label5: TLabel[4]
+        Left = 52
+        Height = 15
+        Top = 183
+        Width = 34
+        Caption = 'Label5'
+      end
+    end
+  end
+  object DataSource1: TDataSource[1]
+    Left = 592
+    Top = 40
+  end
+  object ZQuery1: TZQuery[2]
+    Params = <>
+    Left = 664
+    Top = 40
+  end
+  object ZUpdateSQL1: TZUpdateSQL[3]
+    UseSequenceFieldForRefreshSQL = False
+    Left = 736
+    Top = 40
+  end
+end
