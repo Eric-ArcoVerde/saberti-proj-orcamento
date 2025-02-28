@@ -9,6 +9,8 @@ inherited cadProdutosF: TcadProdutosF
   inherited PageControl1: TPageControl
     Height = 566
     Width = 1164
+    ActivePage = tsCadastro
+    TabIndex = 1
     OnChanging = PageControl1Changing
     inherited tsPesquisar: TTabSheet
       ClientHeight = 538
@@ -77,6 +79,7 @@ inherited cadProdutosF: TcadProdutosF
           OnClick = btnEditarClick
         end
         inherited btnCancelar: TBitBtn
+          Left = 541
           OnClick = btnCancelarClick
         end
         inherited btnExcluir: TBitBtn
@@ -150,7 +153,7 @@ inherited cadProdutosF: TcadProdutosF
         Top = 68
         Width = 41
         DataField = 'ds_categoria_produto'
-        DataSource = cadCategoriaF.dsCategorias
+        DataSource = pesqCategoriaF.dsPesqCategoria
       end
       object cbStatus: TDBComboBox[10]
         Left = 272
@@ -215,6 +218,7 @@ inherited cadProdutosF: TcadProdutosF
         Top = 60
         Width = 75
         Caption = '...'
+        OnClick = BitBtn1Click
         TabOrder = 7
       end
       object edtOBS: TDBEdit[16]
@@ -238,7 +242,6 @@ inherited cadProdutosF: TcadProdutosF
     SortedFields = 'produtoid'
     Connection = DataModuleF.ZConnection1
     UpdateObject = zuProdutos
-    Active = True
     SQL.Strings = (
       'select * from produto;'
     )
@@ -322,16 +325,15 @@ inherited cadProdutosF: TcadProdutosF
     DeleteSQL.Strings = (
       'DELETE FROM produto'
       'WHERE'
-      '  produto.produtoid = :OLD_produtoid AND'
-      '  produto.categoriaprodutoid = :OLD_categoriaprodutoid'
+      '  produto.produtoid = :OLD_produtoid'
     )
     InsertSQL.Strings = (
       'INSERT INTO produto'
       '  (produtoid, categoriaprodutoid, ds_produto, obs_produto, vl_venda_produto, '
-      '   dt_cadastro_produto, status_produto)'
+      '   dt_cadastro_produto, status_produto, categoriaprodutoid_1, ds_categoria_produto)'
       'VALUES'
       '  (:produtoid, :categoriaprodutoid, :ds_produto, :obs_produto, :vl_venda_produto, '
-      '   :dt_cadastro_produto, :status_produto)'
+      '   :dt_cadastro_produto, :status_produto, :categoriaprodutoid_1, :ds_categoria_produto)'
     )
     ModifySQL.Strings = (
       'UPDATE produto SET'
@@ -341,10 +343,11 @@ inherited cadProdutosF: TcadProdutosF
       '  obs_produto = :obs_produto,'
       '  vl_venda_produto = :vl_venda_produto,'
       '  dt_cadastro_produto = :dt_cadastro_produto,'
-      '  status_produto = :status_produto'
+      '  status_produto = :status_produto,'
+      '  categoriaprodutoid_1 = :categoriaprodutoid_1,'
+      '  ds_categoria_produto = :ds_categoria_produto'
       'WHERE'
-      '  produto.produtoid = :OLD_produtoid AND'
-      '  produto.categoriaprodutoid = :OLD_categoriaprodutoid'
+      '  produto.produtoid = :OLD_produtoid'
     )
     UseSequenceFieldForRefreshSQL = False
     Left = 944
@@ -372,10 +375,13 @@ inherited cadProdutosF: TcadProdutosF
         Name = 'status_produto'
       end    
       item
-        Name = 'OLD_produtoid'
+        Name = 'categoriaprodutoid_1'
       end    
       item
-        Name = 'OLD_categoriaprodutoid'
+        Name = 'ds_categoria_produto'
+      end    
+      item
+        Name = 'OLD_produtoid'
       end>
   end
 end

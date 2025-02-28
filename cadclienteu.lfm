@@ -3,6 +3,8 @@ inherited cadCliente: TcadCliente
   Top = 142
   Caption = 'Cadastro do Cliente'
   inherited PageControl1: TPageControl
+    ActivePage = tsCadastro
+    TabIndex = 1
     inherited tsCadastro: TTabSheet
       object Label2: TLabel[1]
         Left = 104

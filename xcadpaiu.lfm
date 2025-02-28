@@ -242,7 +242,7 @@ object xCadPaiF: TxCadPaiF
           TabOrder = 0
         end
         object btnEditar: TBitBtn
-          Left = 136
+          Left = 16
           Height = 30
           Top = 8
           Width = 75
@@ -265,11 +265,11 @@ object xCadPaiF: TxCadPaiF
           TabOrder = 1
         end
         object btnCancelar: TBitBtn
-          Left = 256
+          Left = 373
           Height = 30
           Top = 8
           Width = 75
-          Anchors = [akLeft, akBottom]
+          Anchors = [akBottom]
           Caption = 'Cancelar'
           Glyph.Data = {
             36030000424D360300000000000036000000280000000F000000100000000100

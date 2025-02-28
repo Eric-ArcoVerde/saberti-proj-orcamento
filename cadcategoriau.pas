@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, DBCtrls,
-  ZDataset, ZSqlUpdate, ZAbstractRODataset, xCadPaiU, DB, ComCtrls;
+  ZDataset, ZSqlUpdate, ZAbstractRODataset, xCadPaiU, DB, ComCtrls, dataModuleU;
 
 type
 
@@ -31,6 +31,7 @@ type
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure PageControl1Changing(Sender: TObject; var AllowChange: Boolean);
+    procedure zqCategoriasAfterInsert(DataSet: TDataSet);
   private
 
   public
@@ -56,6 +57,11 @@ procedure TcadCategoriaF.PageControl1Changing(Sender: TObject;
   var AllowChange: Boolean);
 begin
   AllowChange:=False;
+end;
+
+procedure TcadCategoriaF.zqCategoriasAfterInsert(DataSet: TDataSet);
+begin
+  zqCategoriascategoriaprodutoid.AsInteger:=StrToInt(DataModuleF.getSequence('categoria_produto_categoriaprodutoid'));
 end;
 
 procedure TcadCategoriaF.FormClose(Sender: TObject;
@@ -98,7 +104,7 @@ end;
 procedure TcadCategoriaF.btnEditarClick(Sender: TObject);
 begin
   inherited;
-  zqCategorias.Edit;
+  zqCategorias.Post;
 end;
 
 procedure TcadCategoriaF.btnExcluirClick(Sender: TObject);

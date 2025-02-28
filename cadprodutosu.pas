@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, DBCtrls,
-  Buttons, ZDataset, ZSqlUpdate, ZAbstractRODataset, xCadPaiU, DB, ComCtrls;
+  Buttons, ZDataset, ZSqlUpdate, ZAbstractRODataset, xCadPaiU, DB, ComCtrls, pesqCategoria;
 
 type
 
@@ -39,6 +39,7 @@ type
     zqProdutosstatus_produto: TZRawStringField;
     zqProdutosvl_venda_produto: TZBCDField;
     zuProdutos: TZUpdateSQL;
+    procedure BitBtn1Click(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure btnExcluirClick(Sender: TObject);
@@ -87,7 +88,7 @@ end;
 procedure TcadProdutosF.btnEditarClick(Sender: TObject);
 begin
   inherited;
-  zqProdutos.Edit;
+  zqProdutos.Post;
 end;
 
 procedure TcadProdutosF.btnExcluirClick(Sender: TObject);
@@ -105,6 +106,12 @@ procedure TcadProdutosF.btnCancelarClick(Sender: TObject);
 begin
   inherited;
   zqProdutos.Cancel;
+end;
+
+procedure TcadProdutosF.BitBtn1Click(Sender: TObject);
+begin
+  pesqCategoriaF:=TpesqCategoriaF.Create(Self);
+  pesqCategoriaF.ShowModal;
 end;
 
 procedure TcadProdutosF.btnPesqClick(Sender: TObject);

@@ -56,6 +56,8 @@ implementation
 procedure TxCadPaiF.btnNovoClick(Sender: TObject);
 begin
   PageControl1.PageIndex:=1;
+  btnEditar.Visible:=False;
+  btnGravar.Visible:=True;
 end;
 
 procedure TxCadPaiF.btnGravarClick(Sender: TObject);
@@ -86,6 +88,8 @@ end;
 procedure TxCadPaiF.DBGrid1DblClick(Sender: TObject);
 begin
   PageControl1.PageIndex:=1;
+  btnGravar.Visible:=False;
+  btnEditar.Visible:=True;
 end;
 
 procedure TxCadPaiF.FormClose(Sender: TObject; var CloseAction: TCloseAction);

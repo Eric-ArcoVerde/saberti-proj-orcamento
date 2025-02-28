@@ -1,0 +1,10 @@
+select * from categoria_produto
+order by categoriaprodutoid
+
+
+select * from produto;
+
+
+create sequence categoria_produto_categoriaprodutoid;
+
+select nextval ('categoria_produto_categoriaprodutoid');

@@ -21,4 +21,10 @@ object DataModuleF: TDataModuleF
     Left = 112
     Top = 32
   end
+  object zqGenerica: TZQuery
+    Connection = ZConnection1
+    Params = <>
+    Left = 111
+    Top = 147
+  end
 end
