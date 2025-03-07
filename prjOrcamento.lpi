@@ -26,6 +26,9 @@
     </RunParams>
     <RequiredPackages>
       <Item>
+        <PackageName Value="lazreport"/>
+      </Item>
+      <Item>
         <PackageName Value="FCL"/>
       </Item>
       <Item>
@@ -78,7 +81,7 @@
       <Unit>
         <Filename Value="cadclienteu.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="cadCliente"/>
+        <ComponentName Value="cadClienteF"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="cadClienteU"/>
@@ -95,8 +98,55 @@
         <Filename Value="pesqcategoria.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="pesqCategoriaF"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="pesqCategoria"/>
+      </Unit>
+      <Unit>
+        <Filename Value="relclientesu.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="RelClientesF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="relClientesU"/>
+      </Unit>
+      <Unit>
+        <Filename Value="cadusuariou.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="cadUsuariosF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="cadUsuarioU"/>
+      </Unit>
+      <Unit>
+        <Filename Value="orcamentou.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="orcamentoF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="orcamentoU"/>
+      </Unit>
+      <Unit>
+        <Filename Value="pesclienteu.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="pesqClienteF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="pesClienteU"/>
+      </Unit>
+      <Unit>
+        <Filename Value="inseriritemu.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="inserirItemF"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="inserirItemU"/>
+      </Unit>
+      <Unit>
+        <Filename Value="pesqprodutou.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="pesqProdutosF"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="pesqProdutoU"/>
       </Unit>
     </Units>
   </ProjectOptions>

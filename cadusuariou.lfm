@@ -1,0 +1,300 @@
+inherited cadUsuariosF: TcadUsuariosF
+  Left = 490
+  Top = 193
+  Caption = 'Cadastro de Usuário'
+  OnClose = FormClose
+  OnShow = FormShow
+  inherited PageControl1: TPageControl
+    inherited tsPesquisar: TTabSheet
+      inherited Panel1: TPanel
+        inherited btnPesq: TSpeedButton
+          OnClick = btnPesqClick
+        end
+      end
+      inherited Panel2: TPanel
+        inherited btnNovo: TBitBtn
+          OnClick = btnNovoClick
+        end
+      end
+      inherited DBGrid1: TDBGrid
+        Columns = <        
+          item
+            PickList.Strings = (            )
+            Title.Alignment = taCenter
+            Title.Font.Style = [fsBold]
+            Title.Caption = 'ID'
+            FieldName = 'id'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Alignment = taCenter
+            Title.Font.Style = [fsBold]
+            Title.Caption = 'Usuário'
+            Width = 120
+            FieldName = 'usuario'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Font.Style = [fsBold]
+            Title.Caption = 'Nome Completo'
+            Width = 300
+            FieldName = 'nome_completo'
+          end>
+        DataSource = dsUsuario
+      end
+    end
+    inherited tsCadastro: TTabSheet
+      inherited Panel3: TPanel
+        TabOrder = 4
+        inherited btnGravar: TBitBtn
+          OnClick = btnGravarClick
+        end
+        inherited btnEditar: TBitBtn
+          OnClick = btnEditarClick
+        end
+        inherited btnCancelar: TBitBtn
+          OnClick = btnCancelarClick
+        end
+        inherited btnExcluir: TBitBtn
+          OnClick = btnExcluirClick
+        end
+      end
+      object Label2: TLabel[1]
+        Left = 102
+        Height = 15
+        Top = 36
+        Width = 14
+        Caption = 'ID:'
+      end
+      object Label3: TLabel[2]
+        Left = 68
+        Height = 15
+        Top = 70
+        Width = 48
+        Caption = 'Usuários:'
+      end
+      object Label4: TLabel[3]
+        Left = 24
+        Height = 15
+        Top = 104
+        Width = 92
+        Caption = 'Nome Completo:'
+      end
+      object Label5: TLabel[4]
+        Left = 81
+        Height = 15
+        Top = 138
+        Width = 35
+        Caption = 'Senha:'
+      end
+      object edtID: TDBEdit[5]
+        Left = 120
+        Height = 23
+        Top = 32
+        Width = 48
+        DataField = 'id'
+        DataSource = dsUsuario
+        ReadOnly = True
+        Alignment = taRightJustify
+        Color = clSilver
+        MaxLength = 0
+        TabOrder = 0
+      end
+      object edtUsuario: TDBEdit[6]
+        Left = 120
+        Height = 23
+        Top = 66
+        Width = 120
+        DataField = 'usuario'
+        DataSource = dsUsuario
+        MaxLength = 0
+        TabOrder = 1
+      end
+      object edtNome: TDBEdit[7]
+        Left = 120
+        Height = 23
+        Top = 100
+        Width = 304
+        DataField = 'nome_completo'
+        DataSource = dsUsuario
+        MaxLength = 0
+        TabOrder = 2
+      end
+      object edtSenha: TDBEdit[8]
+        Left = 120
+        Height = 23
+        Top = 134
+        Width = 120
+        DataField = 'senha'
+        DataSource = dsUsuario
+        MaxLength = 0
+        PasswordChar = '*'
+        TabOrder = 3
+      end
+      object btnMostrarSenha: TSpeedButton[9]
+        Left = 256
+        Height = 26
+        Top = 134
+        Width = 32
+        Glyph.Data = {
+          76050000424D7605000000000000360000002800000015000000150000000100
+          18000000000040050000C30E0000C30E00000000000000000000BFB8BFBFB8BF
+          BFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BF00FFFFFFFFFF00FFFFFFFF
+          FF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00BFB8BFBFB8BF
+          BFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00BFB8BFBFB8BF
+          BFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BF00FFFFFFFFFF00FFFFFFFF
+          FF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00BFB8BFBFB8BF
+          BFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00BFB8BFBFB8BF
+          BFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BF00FFFFFFFFFF00FFFFFFFF
+          FF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00BFB8BFBFB8BF
+          BFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00BFB8BFBFB8BF
+          BFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BF00000000FFFFFFFFFF00FFFFFFFF
+          FF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00BFB8BFBFB8BF
+          BFB8BFBFB8BFBFB8BFBFB8BFBFB8BF000000000070000000FFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00BFB8BFBFB8BF
+          BFB8BFBFB8BFBFB8BFBFB8BFBFB8BF00000000007070787000000000FFFFFFFF
+          FF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00BFB8BFBFB8BF
+          BFB8BFBFB8BFBFB8BFBFB8BFBFB8BF000000000070000070707870000000FFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00BFB8BFBFB8BF
+          BFB8BFBFB8BFBFB8BFBFB8BF0000008080800000700000700000700000FF0000
+          0000FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00BFB8BFBFB8BF
+          BFB8BFBFB8BFBFB8BFBFB8BF000000BFB8BFBFB8BF0000700000FF0000FF0000
+          FF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00BFB8BFBFB8BF
+          BFB8BFBFB8BFBFB8BF000000BFB8BFBFB8BFFFFFFFFFFFFF0000FF0000FF0000
+          FF0000FF000000BFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BF00BFB8BFBFB8BF
+          BFB8BFBFB8BF000000BFB8BFBFB8BFFFFFFFFFFFFFFFFFFFFFFFFF0000000000
+          00000000BFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BF00BFB8BFBFB8BF
+          BFB8BF000000BFB8BFBFB8BFFFFFFFFFFFFFFFFFFF000000000000BFB8BFBFB8
+          BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BF00BFB8BFBFB8BF
+          000000BFB8BFBFB8BFFFFFFFFFFFFFFFFFFF000000BFB8BFBFB8BFBFB8BFBFB8
+          BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BF00BFB8BF000000
+          BFB8BFBFB8BFFFFFFFFFFFFFFFFFFF0000000000FFBFB8BFBFB8BFBFB8BFBFB8
+          BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BF00BFB8BF000000
+          BFB8BFFFFFFFFFFFFFFFFFFF0000000000FFBFB8BFBFB8BFBFB8BFBFB8BFBFB8
+          BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BF00BFB8BFBFB8BF
+          000000FFFFFFFFFFFF000000BFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8
+          BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BF00BFB8BFBFB8BF
+          BFB8BF000000000000BFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8
+          BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BF00BFB8BFBFB8BF
+          BFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8
+          BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BFBFB8BF00
+        }
+        OnClick = btnMostrarSenhaClick
+      end
+      object Label6: TLabel[10]
+        Left = 300
+        Height = 15
+        Top = 138
+        Width = 55
+        Caption = '(6 dígitos)'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+    end
+  end
+  object dsUsuario: TDataSource[1]
+    DataSet = zqUsuario
+    Left = 488
+    Top = 32
+  end
+  object zqUsuario: TZQuery[2]
+    SortedFields = 'id'
+    Connection = DataModuleF.ZConnection1
+    AfterInsert = zqUsuarioAfterInsert
+    UpdateObject = zuUsuario
+    SQL.Strings = (
+      'select id, '
+      'usuario, '
+      'nome_completo, '
+      'senha '
+      'from usuarios;'
+    )
+    Params = <>
+    IndexFieldNames = 'id Asc'
+    Left = 576
+    Top = 32
+    object zqUsuarioid: TZIntegerField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object zqUsuariousuario: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'usuario'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object zqUsuarionome_completo: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'nome_completo'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+    object zqUsuariosenha: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'senha'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+  end
+  object zuUsuario: TZUpdateSQL[3]
+    DeleteSQL.Strings = (
+      'DELETE FROM usuarios'
+      'WHERE'
+      '  ((usuarios.id IS NULL AND :OLD_id IS NULL) OR (usuarios.id = :OLD_id))'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO usuarios'
+      '  (id, usuario, nome_completo, senha)'
+      'VALUES'
+      '  (:id, :usuario, :nome_completo, :senha)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE usuarios SET'
+      '  id = :id,'
+      '  usuario = :usuario,'
+      '  nome_completo = :nome_completo,'
+      '  senha = :senha'
+      'WHERE'
+      '  ((usuarios.id IS NULL AND :OLD_id IS NULL) OR (usuarios.id = :OLD_id))'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    Left = 672
+    Top = 32
+    ParamData = <    
+      item
+        Name = 'id'
+      end    
+      item
+        Name = 'usuario'
+      end    
+      item
+        Name = 'nome_completo'
+      end    
+      item
+        Name = 'senha'
+      end    
+      item
+        Name = 'OLD_id'
+      end>
+  end
+end

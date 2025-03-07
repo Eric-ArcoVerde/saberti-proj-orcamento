@@ -1,31 +1,31 @@
-object pesqCategoriaF: TpesqCategoriaF
-  Left = 1075
-  Height = 532
-  Top = 172
-  Width = 545
-  Caption = 'Pesquisar Categoria'
-  ClientHeight = 532
-  ClientWidth = 545
+object pesqProdutosF: TpesqProdutosF
+  Left = 584
+  Height = 438
+  Top = 221
+  Width = 473
+  Caption = 'Pesquisar Produto'
+  ClientHeight = 438
+  ClientWidth = 473
   OnClose = FormClose
   LCLVersion = '3.8.0.0'
   object Panel1: TPanel
     Left = 0
-    Height = 50
+    Height = 64
     Top = 0
-    Width = 545
+    Width = 473
     Align = alTop
-    ClientHeight = 50
-    ClientWidth = 545
+    ClientHeight = 64
+    ClientWidth = 473
     TabOrder = 0
     object Label1: TLabel
-      Left = 44
+      Left = 24
       Height = 15
       Top = 17
-      Width = 112
-      Caption = 'Código da Categoria:'
+      Width = 105
+      Caption = 'Código do Produto:'
     end
     object edtPesquisar: TEdit
-      Left = 160
+      Left = 136
       Height = 23
       Top = 13
       Width = 64
@@ -33,7 +33,7 @@ object pesqCategoriaF: TpesqCategoriaF
       TabOrder = 0
     end
     object btnPesquisar: TBitBtn
-      Left = 239
+      Left = 216
       Height = 30
       Top = 9
       Width = 107
@@ -51,68 +51,81 @@ object pesqCategoriaF: TpesqCategoriaF
         0000777770077700777770000000777777800087777770000000777777777777
         777770000000
       }
-      OnClick = btnPesquisarClick
       TabOrder = 1
     end
   end
   object DBGrid1: TDBGrid
     Left = 0
-    Height = 482
-    Top = 50
-    Width = 545
+    Height = 374
+    Top = 64
+    Width = 473
     Align = alClient
     Color = clWindow
     Columns = <    
       item
-        Title.Alignment = taCenter
-        Title.Font.Style = [fsBold]
-        Title.Caption = 'ID'
-        FieldName = 'categoriaprodutoid'
+        Title.Caption = 'produtoid'
+        FieldName = 'produtoid'
       end    
       item
-        Title.Alignment = taCenter
-        Title.Font.Style = [fsBold]
-        Title.Caption = 'Descrição Categoria'
-        Width = 150
-        FieldName = 'ds_categoria_produto'
+        Title.Caption = 'ds_produto'
+        FieldName = 'ds_produto'
+      end    
+      item
+        Title.Caption = 'vl_venda_produto'
+        FieldName = 'vl_venda_produto'
       end>
-    DataSource = dsPesqCategoria
-    ReadOnly = True
+    DataSource = dsPesqProd
     TabOrder = 1
-    OnDblClick = DBGrid1DblClick
   end
-  object dsPesqCategoria: TDataSource
-    DataSet = zqCategoriaAux
-    Left = 448
-    Top = 8
+  object dsPesqProd: TDataSource
+    DataSet = zqPesqProd
+    Left = 397
+    Top = 16
   end
-  object zqCategoriaAux: TZQuery
+  object zqPesqProd: TZQuery
     Connection = DataModuleF.ZConnection1
     SQL.Strings = (
-      'select * from categoria_produto'
-      'order by categoriaprodutoid'
+      'select produtoid,'
+      'ds_produto,'
+      'vl_venda_produto'
+      'from produto'
+      'order by produtoid; '
     )
     Params = <>
-    Left = 450
-    Top = 84
-    object zqCategoriaAuxcategoriaprodutoid: TZIntegerField
+    Left = 397
+    Top = 83
+    object zqPesqProdprodutoid: TZIntegerField
       FieldKind = fkData
-      FieldName = 'categoriaprodutoid'
+      FieldName = 'produtoid'
       Index = 0
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
     end
-    object zqCategoriaAuxds_categoria_produto: TZRawStringField
+    object zqPesqProdds_produto: TZRawStringField
       FieldKind = fkData
-      FieldName = 'ds_categoria_produto'
+      FieldName = 'ds_produto'
       Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
       Size = 50
+    end
+    object zqPesqProdvl_venda_produto: TZBCDField
+      FieldKind = fkData
+      FieldName = 'vl_venda_produto'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Precision = 15
+      Currency = False
+      MaxValue = 0
+      MinValue = 0
+      Size = 2
     end
   end
 end

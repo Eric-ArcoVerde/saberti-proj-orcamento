@@ -18,6 +18,7 @@ object MenuPrincipalF: TMenuPrincipalF
       end
       object miCadCliente: TMenuItem
         Caption = 'Cliente'
+        OnClick = miCadClienteClick
       end
       object miCadProdutos: TMenuItem
         Caption = 'Produtos'
@@ -28,18 +29,21 @@ object MenuPrincipalF: TMenuPrincipalF
       end
       object miCadUsuarios: TMenuItem
         Caption = 'Usuários'
+        OnClick = miCadUsuariosClick
       end
     end
     object miVendas: TMenuItem
       Caption = 'Vendas'
       object miOrcamento: TMenuItem
         Caption = 'Orçamento'
+        OnClick = miOrcamentoClick
       end
     end
     object miRelatorios: TMenuItem
       Caption = 'Relatórios'
       object miRelClientes: TMenuItem
         Caption = 'Clientes'
+        OnClick = miRelClientesClick
       end
       object miRelProdutos: TMenuItem
         Caption = 'Produtos'

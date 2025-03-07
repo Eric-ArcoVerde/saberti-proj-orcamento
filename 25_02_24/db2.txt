@@ -1,10 +1,73 @@
-select * from categoria_produto
-order by categoriaprodutoid
-
-
-select * from produto;
-
-
+--Sequencias getSequence
 create sequence categoria_produto_categoriaprodutoid;
 
 select nextval ('categoria_produto_categoriaprodutoid');
+
+create sequence produto_produtoid_seq;
+select nextval ('produto_produtoid_seq');
+
+create sequence cliente_clienteid_seq;
+select nextval ('cliente_clienteid_seq');
+
+create sequence usuarios_id_seq;
+select nextval ('usuarios_id_seq');
+
+select produtoid from produto, categoria_produto;
+
+--RELATORIO CLIENTES, SQL CAD CLIENTES
+select clienteid,
+tipo_cliente,
+cpf_cnpj_cliente,
+nome_cliente 
+from cliente
+where CLIENTEID = 3;
+
+--SQL CAD PRODUTOS
+
+select p.produtoid,
+p.ds_produto,
+p.obs_produto,
+p.vl_venda_produto,
+p.dt_cadastro_produto,
+p.status_produto,
+p.categoriaprodutoid 
+from produto p
+order by p.produtoid; 
+
+--SQL PESQUISAR PRODUTOS
+select produtoid,
+ds_produto,
+vl_venda_produto
+from produto
+order by produtoid; 
+
+--SQL CAD CATEGORIAS, PESQ CATEGORIAS
+select * from categoria_produto
+order by categoriaprodutoid
+
+--SQL USUARIO
+select id, usuario, nome_completo, senha from usuarios;
+
+--SQL ORÇAMENTO
+select orcamentoid,
+clienteid,
+dt_orcamento,
+dt_validade_orcamento,
+vl_total_orcamento
+from orcamento
+order by orcamentoid;
+
+--SQL ORÇAMENTO ITEM
+select orcamentoitemid,
+orcamentoid,
+produtoid,
+qt_produto,
+vl_unitario,
+vl_total,
+produto_desc
+from orcamento_item
+order by orcamentoitemid
+
+--SQL ABRIR CADASTRO ORCITEM
+select * from orcamento_item
+where orcamentoid = 1;

@@ -30,7 +30,6 @@ type
     tsCadastro: TTabSheet;
     tsPesquisar: TTabSheet;
     procedure btnCancelarClick(Sender: TObject);
-    procedure btnEditarClick(Sender: TObject);
     procedure btnExcluirClick(Sender: TObject);
     procedure btnGravarClick(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
@@ -38,6 +37,7 @@ type
     procedure DBGrid1DblClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
+    procedure PageControl1Changing(Sender: TObject; var AllowChange: Boolean);
   private
 
   public
@@ -56,8 +56,6 @@ implementation
 procedure TxCadPaiF.btnNovoClick(Sender: TObject);
 begin
   PageControl1.PageIndex:=1;
-  btnEditar.Visible:=False;
-  btnGravar.Visible:=True;
 end;
 
 procedure TxCadPaiF.btnGravarClick(Sender: TObject);
@@ -65,10 +63,6 @@ begin
   PageControl1.PageIndex:=0;
 end;
 
-procedure TxCadPaiF.btnEditarClick(Sender: TObject);
-begin
-  PageControl1.PageIndex:=0;
-end;
 
 procedure TxCadPaiF.btnExcluirClick(Sender: TObject);
 begin
@@ -88,8 +82,6 @@ end;
 procedure TxCadPaiF.DBGrid1DblClick(Sender: TObject);
 begin
   PageControl1.PageIndex:=1;
-  btnGravar.Visible:=False;
-  btnEditar.Visible:=True;
 end;
 
 procedure TxCadPaiF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -100,6 +92,12 @@ end;
 procedure TxCadPaiF.FormShow(Sender: TObject);
 begin
   PageControl1.PageIndex:=0;
+end;
+
+procedure TxCadPaiF.PageControl1Changing(Sender: TObject;
+  var AllowChange: Boolean);
+begin
+  AllowChange:=False;
 end;
 
 end.

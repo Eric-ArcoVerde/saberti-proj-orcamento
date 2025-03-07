@@ -1,0 +1,146 @@
+object inserirItemF: TinserirItemF
+  Left = 744
+  Height = 267
+  Top = 254
+  Width = 383
+  Caption = 'Inserir Item'
+  ClientHeight = 267
+  ClientWidth = 383
+  OnClose = FormClose
+  LCLVersion = '3.8.0.0'
+  object Label1: TLabel
+    Left = 35
+    Height = 15
+    Top = 20
+    Width = 46
+    Caption = 'Produto:'
+  end
+  object Label2: TLabel
+    Left = 35
+    Height = 15
+    Top = 69
+    Width = 117
+    Caption = 'Descrição do Produto:'
+  end
+  object Label3: TLabel
+    Left = 35
+    Height = 15
+    Top = 152
+    Width = 32
+    Caption = 'Qtde.:'
+  end
+  object Label4: TLabel
+    Left = 128
+    Height = 15
+    Top = 152
+    Width = 46
+    Caption = 'Val. Unit.'
+  end
+  object Label5: TLabel
+    Left = 240
+    Height = 15
+    Top = 152
+    Width = 49
+    Caption = 'Val. Total:'
+  end
+  object DBEdit1: TDBEdit
+    Left = 35
+    Height = 23
+    Top = 40
+    Width = 80
+    ReadOnly = True
+    Color = clSilver
+    MaxLength = 0
+    TabOrder = 0
+  end
+  object DBEdit2: TDBEdit
+    Left = 35
+    Height = 23
+    Top = 88
+    Width = 285
+    ReadOnly = True
+    Color = clSilver
+    MaxLength = 0
+    TabOrder = 1
+  end
+  object DBEdit3: TDBEdit
+    Left = 128
+    Height = 23
+    Top = 168
+    Width = 80
+    MaxLength = 0
+    TabOrder = 2
+  end
+  object DBEdit4: TDBEdit
+    Left = 35
+    Height = 23
+    Top = 168
+    Width = 72
+    MaxLength = 0
+    TabOrder = 3
+  end
+  object DBEdit5: TDBEdit
+    Left = 240
+    Height = 23
+    Top = 168
+    Width = 80
+    MaxLength = 0
+    TabOrder = 4
+  end
+  object btnPesq: TBitBtn
+    Left = 128
+    Height = 30
+    Top = 33
+    Width = 32
+    Caption = '...'
+    OnClick = btnPesqClick
+    TabOrder = 5
+  end
+  object btnInserir: TBitBtn
+    Left = 168
+    Height = 30
+    Top = 223
+    Width = 75
+    Caption = 'Inserir'
+    Glyph.Data = {
+      DE000000424DDE0000000000000076000000280000000D0000000D0000000100
+      0400000000006800000000000000000000001000000010000000000000000000
+      BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00777777777777
+      700077777777777770007777700077777000777770C077777000777770C07777
+      7000770000C000077000770CCCCCCC077000770000C000077000777770C07777
+      7000777770C07777700077777000777770007777777777777000777777777777
+      7000
+    }
+    TabOrder = 6
+  end
+  object btnCancelar: TBitBtn
+    Left = 272
+    Height = 30
+    Top = 223
+    Width = 75
+    Caption = 'Cancelar'
+    Glyph.Data = {
+      F6000000424DF600000000000000760000002800000010000000100000000100
+      0400000000008000000000000000000000001000000010000000000000000000
+      BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00777777777777
+      7777777777777777777777777777777777777777777777777777777777777777
+      7777777777777778477777444447777748777744447777777477774447777777
+      7477774474777777747777477744777748777777777744448777777777777777
+      7777777777777777777777777777777777777777777777777777
+    }
+    TabOrder = 7
+  end
+  object dsAuxProduto: TDataSource
+    DataSet = zqAuxProduto
+    Left = 328
+    Top = 24
+  end
+  object zqAuxProduto: TZQuery
+    Connection = DataModuleF.ZConnection1
+    Params = <>
+    Left = 328
+    Top = 80
+  end
+end

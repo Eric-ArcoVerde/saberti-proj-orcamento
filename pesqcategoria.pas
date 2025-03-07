@@ -24,6 +24,7 @@ type
     zqCategoriaAuxds_categoria_produto: TZRawStringField;
     procedure btnPesquisarClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
   private
 
   public
@@ -65,7 +66,14 @@ end;
 procedure TpesqCategoriaF.DBGrid1DblClick(Sender: TObject);
 begin
    cadProdutosF.zqProdutoscategoriaprodutoid.AsInteger := zqCategoriaAuxcategoriaprodutoid.AsInteger;
-   cadProdutosF.;
+   cadProdutosF.LbCat.Caption:=zqCategoriaAuxds_categoria_produto.AsString;
+   Close;
+end;
+
+procedure TpesqCategoriaF.FormClose(Sender: TObject;
+  var CloseAction: TCloseAction);
+begin
+  CloseAction:=caFree;
 end;
 
 end.

@@ -30,7 +30,6 @@ type
     procedure btnPesqClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
-    procedure PageControl1Changing(Sender: TObject; var AllowChange: Boolean);
     procedure zqCategoriasAfterInsert(DataSet: TDataSet);
   private
 
@@ -53,12 +52,6 @@ begin
   zqCategorias.Open;
 end;
 
-procedure TcadCategoriaF.PageControl1Changing(Sender: TObject;
-  var AllowChange: Boolean);
-begin
-  AllowChange:=False;
-end;
-
 procedure TcadCategoriaF.zqCategoriasAfterInsert(DataSet: TDataSet);
 begin
   zqCategoriascategoriaprodutoid.AsInteger:=StrToInt(DataModuleF.getSequence('categoria_produto_categoriaprodutoid'));
@@ -79,14 +72,27 @@ end;
 
 procedure TcadCategoriaF.btnPesqClick(Sender: TObject);
 begin
-  zqCategorias.Close;
-  zqCategorias.SQL.Text :=
-    'select * '+
-    'from categoria_produto '+
-    'where categoriaprodutoid = ' + edtPesq.Text +
-    'order by categoriaprodutoid';
-  zqCategorias.Open;
-end;
+  if edtPesq.Text <> '' then
+  begin
+    zqCategorias.Close;
+    zqCategorias.SQL.Text :=
+     'select * '+
+     'from categoria_produto '+
+     'where categoriaprodutoid = ' + edtPesq.Text +
+     'order by categoriaprodutoid';
+   zqCategorias.Open;
+  end
+  else
+  begin
+    zqCategorias.Close;
+    zqCategorias.SQL.Text :=
+     'select * '+
+     'from categoria_produto '+
+     'order by categoriaprodutoid';
+   zqCategorias.Open;
+  end;
+ end;
+
 
 
 procedure TcadCategoriaF.btnGravarClick(Sender: TObject);
@@ -104,7 +110,7 @@ end;
 procedure TcadCategoriaF.btnEditarClick(Sender: TObject);
 begin
   inherited;
-  zqCategorias.Post;
+  zqCategorias.Edit;
 end;
 
 procedure TcadCategoriaF.btnExcluirClick(Sender: TObject);

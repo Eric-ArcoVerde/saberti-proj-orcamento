@@ -5,7 +5,8 @@ unit menuPrincipalU;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, cadCategoriaU, cadProdutosU;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, cadCategoriaU,
+  cadProdutosU, relClientesU, cadClienteU, cadUsuarioU, orcamentoU;
 
 type
 
@@ -30,7 +31,11 @@ type
     miCadCategoria: TMenuItem;
     Separator1: TMenuItem;
     procedure miCadCategoriaClick(Sender: TObject);
+    procedure miCadClienteClick(Sender: TObject);
     procedure miCadProdutosClick(Sender: TObject);
+    procedure miCadUsuariosClick(Sender: TObject);
+    procedure miOrcamentoClick(Sender: TObject);
+    procedure miRelClientesClick(Sender: TObject);
     procedure miSairClick(Sender: TObject);
   private
 
@@ -53,10 +58,34 @@ begin
   cadCategoriaF.ShowModal;
 end;
 
+procedure TMenuPrincipalF.miCadClienteClick(Sender: TObject);
+begin
+  cadClienteF:=TcadClienteF.Create(Self);
+  cadClienteF.ShowModal;
+end;
+
 procedure TMenuPrincipalF.miCadProdutosClick(Sender: TObject);
 begin
   cadProdutosF:=TcadProdutosF.Create(Self);
   cadProdutosF.ShowModal;
+end;
+
+procedure TMenuPrincipalF.miCadUsuariosClick(Sender: TObject);
+begin
+  cadUsuariosF:=TcadUsuariosF.Create(Self);
+  cadUsuariosF.ShowModal;
+end;
+
+procedure TMenuPrincipalF.miOrcamentoClick(Sender: TObject);
+begin
+  orcamentoF:=TorcamentoF.Create(Self);
+  orcamentoF.ShowModal;
+end;
+
+procedure TMenuPrincipalF.miRelClientesClick(Sender: TObject);
+begin
+  RelClientesF:=TRelClientesF.Create(Self);
+  RelClientesF.ShowModal;
 end;
 
 procedure TMenuPrincipalF.miSairClick(Sender: TObject);

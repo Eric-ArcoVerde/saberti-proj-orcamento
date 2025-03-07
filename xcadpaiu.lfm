@@ -1,7 +1,7 @@
 object xCadPaiF: TxCadPaiF
-  Left = 472
+  Left = 515
   Height = 565
-  Top = 147
+  Top = 135
   Width = 828
   Caption = 'xCadPai'
   ClientHeight = 565
@@ -15,10 +15,11 @@ object xCadPaiF: TxCadPaiF
     Height = 565
     Top = 0
     Width = 828
-    ActivePage = tsPesquisar
+    ActivePage = tsCadastro
     Align = alClient
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 0
+    OnChanging = PageControl1Changing
     object tsPesquisar: TTabSheet
       Caption = 'Pesquisar'
       ClientHeight = 537
@@ -242,7 +243,7 @@ object xCadPaiF: TxCadPaiF
           TabOrder = 0
         end
         object btnEditar: TBitBtn
-          Left = 16
+          Left = 112
           Height = 30
           Top = 8
           Width = 75
@@ -261,7 +262,6 @@ object xCadPaiF: TxCadPaiF
             0000777777777777705500000000777777777777770070000000777777777777
             777770000000
           }
-          OnClick = btnEditarClick
           TabOrder = 1
         end
         object btnCancelar: TBitBtn

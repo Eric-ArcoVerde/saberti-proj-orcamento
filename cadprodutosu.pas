@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, DBCtrls,
-  Buttons, ZDataset, ZSqlUpdate, ZAbstractRODataset, xCadPaiU, DB, ComCtrls, pesqCategoria;
+  Buttons, ZDataset, ZSqlUpdate, ZAbstractRODataset, xCadPaiU, DB, ComCtrls, pesqCategoria, dataModuleU;
 
 type
 
@@ -15,7 +15,6 @@ type
   TcadProdutosF = class(TxCadPaiF)
     BitBtn1: TBitBtn;
     cbStatus: TDBComboBox;
-    DBText1: TDBText;
     edtID: TDBEdit;
     dsProdutos: TDataSource;
     edtDataCadProd: TDBEdit;
@@ -30,6 +29,7 @@ type
     Label6: TLabel;
     Label7: TLabel;
     Label8: TLabel;
+    LbCat: TLabel;
     zqProdutos: TZQuery;
     zqProdutoscategoriaprodutoid: TZIntegerField;
     zqProdutosds_produto: TZRawStringField;
@@ -48,7 +48,7 @@ type
     procedure btnPesqClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
-    procedure PageControl1Changing(Sender: TObject; var AllowChange: Boolean);
+    procedure zqProdutosAfterInsert(DataSet: TDataSet);
   private
 
   public
@@ -88,7 +88,7 @@ end;
 procedure TcadProdutosF.btnEditarClick(Sender: TObject);
 begin
   inherited;
-  zqProdutos.Post;
+  zqProdutos.Edit;
 end;
 
 procedure TcadProdutosF.btnExcluirClick(Sender: TObject);
@@ -116,13 +116,25 @@ end;
 
 procedure TcadProdutosF.btnPesqClick(Sender: TObject);
 begin
-  zqProdutos.Close;
-  zqProdutos.SQL.Text:=
-  'select produtoid, status_produto, ds_produto ' +
-  'from produto ' +
-  'where produtoid = ' +
-  edtPesq.Text;
-  zqProdutos.Open;
+  if edtPesq.Text <> '' then
+  begin
+   zqProdutos.Close;
+   zqProdutos.SQL.Text:=
+   'select * ' +
+   'from produto ' +
+   'where produtoid = ' +
+   edtPesq.Text;
+   zqProdutos.Open;
+  end
+  else
+  begin
+   zqProdutos.Close;
+   zqProdutos.SQL.Text :=
+    'select * '+
+    'from produto '+
+    'order by produtoid';
+   zqProdutos.Open;
+  end;
 end;
 
 procedure TcadProdutosF.FormShow(Sender: TObject);
@@ -131,10 +143,9 @@ begin
   zqProdutos.Open;
 end;
 
-procedure TcadProdutosF.PageControl1Changing(Sender: TObject;
-  var AllowChange: Boolean);
+procedure TcadProdutosF.zqProdutosAfterInsert(DataSet: TDataSet);
 begin
-  AllowChange:=False;
+  zqProdutosprodutoid.AsInteger:=StrToInt(dataModuleF.getSequence('produto_produtoid_seq'));
 end;
 
 end.

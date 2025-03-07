@@ -1,39 +1,31 @@
-object pesqCategoriaF: TpesqCategoriaF
-  Left = 1075
-  Height = 532
-  Top = 172
-  Width = 545
-  Caption = 'Pesquisar Categoria'
-  ClientHeight = 532
-  ClientWidth = 545
+object pesqClienteF: TpesqClienteF
+  Left = 631
+  Height = 511
+  Top = 185
+  Width = 560
+  Caption = 'Pesquisar Cliente'
+  ClientHeight = 511
+  ClientWidth = 560
   OnClose = FormClose
   LCLVersion = '3.8.0.0'
   object Panel1: TPanel
     Left = 0
-    Height = 50
+    Height = 58
     Top = 0
-    Width = 545
+    Width = 560
     Align = alTop
-    ClientHeight = 50
-    ClientWidth = 545
+    ClientHeight = 58
+    ClientWidth = 560
     TabOrder = 0
     object Label1: TLabel
-      Left = 44
+      Left = 24
       Height = 15
       Top = 17
-      Width = 112
-      Caption = 'Código da Categoria:'
-    end
-    object edtPesquisar: TEdit
-      Left = 160
-      Height = 23
-      Top = 13
-      Width = 64
-      NumbersOnly = True
-      TabOrder = 0
+      Width = 99
+      Caption = 'Código do Cliente:'
     end
     object btnPesquisar: TBitBtn
-      Left = 239
+      Left = 199
       Height = 30
       Top = 9
       Width = 107
@@ -54,12 +46,20 @@ object pesqCategoriaF: TpesqCategoriaF
       OnClick = btnPesquisarClick
       TabOrder = 1
     end
+    object edtPesqCliente: TEdit
+      Left = 133
+      Height = 23
+      Top = 13
+      Width = 56
+      NumbersOnly = True
+      TabOrder = 0
+    end
   end
   object DBGrid1: TDBGrid
     Left = 0
-    Height = 482
-    Top = 50
-    Width = 545
+    Height = 453
+    Top = 58
+    Width = 560
     Align = alClient
     Color = clWindow
     Columns = <    
@@ -67,52 +67,81 @@ object pesqCategoriaF: TpesqCategoriaF
         Title.Alignment = taCenter
         Title.Font.Style = [fsBold]
         Title.Caption = 'ID'
-        FieldName = 'categoriaprodutoid'
+        FieldName = 'clienteid'
       end    
       item
         Title.Alignment = taCenter
         Title.Font.Style = [fsBold]
-        Title.Caption = 'Descrição Categoria'
-        Width = 150
-        FieldName = 'ds_categoria_produto'
+        Title.Caption = 'CPF/CNPJ'
+        Width = 100
+        FieldName = 'cpf_cnpj_cliente'
+      end    
+      item
+        Title.Font.Style = [fsBold]
+        Title.Caption = 'Nome Cliente'
+        Width = 300
+        FieldName = 'nome_cliente'
       end>
-    DataSource = dsPesqCategoria
+    DataSource = dsPesqCliente
     ReadOnly = True
     TabOrder = 1
     OnDblClick = DBGrid1DblClick
   end
-  object dsPesqCategoria: TDataSource
-    DataSet = zqCategoriaAux
-    Left = 448
-    Top = 8
+  object dsPesqCliente: TDataSource
+    DataSet = zqClienteAux
+    Left = 472
+    Top = 72
   end
-  object zqCategoriaAux: TZQuery
+  object zqClienteAux: TZQuery
     Connection = DataModuleF.ZConnection1
     SQL.Strings = (
-      'select * from categoria_produto'
-      'order by categoriaprodutoid'
+      'select clienteid,'
+      'tipo_cliente,'
+      'cpf_cnpj_cliente,'
+      'nome_cliente '
+      'from cliente;'
     )
     Params = <>
-    Left = 450
-    Top = 84
-    object zqCategoriaAuxcategoriaprodutoid: TZIntegerField
+    Left = 472
+    Top = 160
+    object zqClienteAuxclienteid: TZIntegerField
       FieldKind = fkData
-      FieldName = 'categoriaprodutoid'
+      FieldName = 'clienteid'
       Index = 0
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
     end
-    object zqCategoriaAuxds_categoria_produto: TZRawStringField
+    object zqClienteAuxtipo_cliente: TZRawStringField
       FieldKind = fkData
-      FieldName = 'ds_categoria_produto'
+      FieldName = 'tipo_cliente'
       Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
-      Size = 50
+      Size = 1
+    end
+    object zqClienteAuxcpf_cnpj_cliente: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'cpf_cnpj_cliente'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 18
+    end
+    object zqClienteAuxnome_cliente: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'nome_cliente'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 100
     end
   end
 end
