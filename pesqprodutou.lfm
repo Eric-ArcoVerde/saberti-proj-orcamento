@@ -1,21 +1,22 @@
 object pesqProdutosF: TpesqProdutosF
-  Left = 584
-  Height = 438
-  Top = 221
-  Width = 473
+  Left = 1118
+  Height = 451
+  Top = 103
+  Width = 497
   Caption = 'Pesquisar Produto'
-  ClientHeight = 438
-  ClientWidth = 473
+  ClientHeight = 451
+  ClientWidth = 497
   OnClose = FormClose
+  OnShow = FormShow
   LCLVersion = '3.8.0.0'
   object Panel1: TPanel
     Left = 0
     Height = 64
     Top = 0
-    Width = 473
+    Width = 497
     Align = alTop
     ClientHeight = 64
-    ClientWidth = 473
+    ClientWidth = 497
     TabOrder = 0
     object Label1: TLabel
       Left = 24
@@ -51,31 +52,43 @@ object pesqProdutosF: TpesqProdutosF
         0000777770077700777770000000777777800087777770000000777777777777
         777770000000
       }
+      OnClick = btnPesquisarClick
       TabOrder = 1
     end
   end
   object DBGrid1: TDBGrid
     Left = 0
-    Height = 374
+    Height = 387
     Top = 64
-    Width = 473
+    Width = 497
     Align = alClient
     Color = clWindow
     Columns = <    
       item
-        Title.Caption = 'produtoid'
+        Alignment = taCenter
+        Title.Alignment = taCenter
+        Title.Font.Style = [fsBold]
+        Title.Caption = 'ID Produto'
+        Width = 90
         FieldName = 'produtoid'
       end    
       item
-        Title.Caption = 'ds_produto'
+        Title.Alignment = taCenter
+        Title.Font.Style = [fsBold]
+        Title.Caption = 'Descrição'
+        Width = 200
         FieldName = 'ds_produto'
       end    
       item
-        Title.Caption = 'vl_venda_produto'
+        Title.Alignment = taCenter
+        Title.Font.Style = [fsBold]
+        Title.Caption = 'Vl. Unitário'
+        Width = 150
         FieldName = 'vl_venda_produto'
       end>
     DataSource = dsPesqProd
     TabOrder = 1
+    OnDblClick = DBGrid1DblClick
   end
   object dsPesqProd: TDataSource
     DataSet = zqPesqProd
@@ -85,9 +98,7 @@ object pesqProdutosF: TpesqProdutosF
   object zqPesqProd: TZQuery
     Connection = DataModuleF.ZConnection1
     SQL.Strings = (
-      'select produtoid,'
-      'ds_produto,'
-      'vl_venda_produto'
+      'select *'
       'from produto'
       'order by produtoid; '
     )
@@ -126,6 +137,44 @@ object pesqProdutosF: TpesqProdutosF
       MaxValue = 0
       MinValue = 0
       Size = 2
+    end
+    object zqPesqProdcategoriaprodutoid: TZIntegerField
+      FieldKind = fkData
+      FieldName = 'categoriaprodutoid'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zqPesqProdobs_produto: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'obs_produto'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object zqPesqProddt_cadastro_produto: TZDateTimeField
+      FieldKind = fkData
+      FieldName = 'dt_cadastro_produto'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zqPesqProdstatus_produto: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'status_produto'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 10
     end
   end
 end

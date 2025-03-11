@@ -1,14 +1,11 @@
-object RelClientesF: TRelClientesF
-  Left = 1075
-  Height = 178
-  Top = 276
-  Width = 515
-  Caption = 'Relatorio de Clientes'
-  ClientHeight = 178
-  ClientWidth = 515
-  OnClose = FormClose
-  OnShow = FormShow
-  Position = poScreenCenter
+object relProdutosF: TrelProdutosF
+  Left = 444
+  Height = 200
+  Top = 235
+  Width = 637
+  Caption = 'Relátorio de Produtos'
+  ClientHeight = 200
+  ClientWidth = 637
   LCLVersion = '3.8.0.0'
   object btnImpressao: TBitBtn
     Left = 64
@@ -50,73 +47,26 @@ object RelClientesF: TRelClientesF
       BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
       BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF0000
     }
-    OnClick = btnImpressaoClick
     TabOrder = 0
   end
-  object frRelCliente: TfrReport
-    Dataset = frDBDSRelCliente
+  object frRelProd: TfrReport
+    Dataset = frDBDSRelProd
     InitialZoom = pzDefault
     Options = []
     PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit, pbSettings, pbPageSetup]
     DataType = dtDataSet
-    Left = 136
-    Top = 112
+    Left = 113
+    Top = 119
   end
-  object frDBDSRelCliente: TfrDBDataSet
-    DataSet = zqRelCliente
+  object frDBDSRelProd: TfrDBDataSet
+    DataSet = zqRelProd
     Left = 224
-    Top = 112
+    Top = 119
   end
-  object zqRelCliente: TZQuery
+  object zqRelProd: TZQuery
     Connection = DataModuleF.ZConnection1
-    SQL.Strings = (
-      'select clienteid,'
-      'tipo_cliente,'
-      'cpf_cnpj_cliente,'
-      'nome_cliente '
-      'from cliente'
-    )
     Params = <>
-    Left = 312
-    Top = 112
-    object zqRelClienteclienteid: TZIntegerField
-      FieldKind = fkData
-      FieldName = 'clienteid'
-      Index = 0
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = True
-    end
-    object zqRelClientetipo_cliente: TZRawStringField
-      FieldKind = fkData
-      FieldName = 'tipo_cliente'
-      Index = 1
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = True
-      Size = 1
-    end
-    object zqRelClientecpf_cnpj_cliente: TZRawStringField
-      FieldKind = fkData
-      FieldName = 'cpf_cnpj_cliente'
-      Index = 2
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = True
-      Size = 18
-    end
-    object zqRelClientenome_cliente: TZRawStringField
-      FieldKind = fkData
-      FieldName = 'nome_cliente'
-      Index = 3
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = True
-      Size = 100
-    end
+    Left = 344
+    Top = 119
   end
 end

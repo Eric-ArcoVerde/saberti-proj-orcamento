@@ -293,6 +293,7 @@ inherited orcamentoF: TorcamentoF
             3939393939393939393969390000393939393939393939393939393939393969
             00003939393939393939393939393939393939390000
           }
+          OnClick = btnDelItemClick
           TabOrder = 7
         end
       end
@@ -366,6 +367,7 @@ inherited orcamentoF: TorcamentoF
   end
   object zqOrcamento: TZQuery[2]
     Connection = DataModuleF.ZConnection1
+    AfterInsert = zqOrcamentoAfterInsert
     UpdateObject = zuOrcamento
     SQL.Strings = (
       'select orcamentoid,'
@@ -405,6 +407,7 @@ inherited orcamentoF: TorcamentoF
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
+      DisplayFormat.DateFormat = 'dd/mm/yyyy'
     end
     object zqOrcamentodt_validade_orcamento: TZDateTimeField
       FieldKind = fkData
@@ -414,6 +417,7 @@ inherited orcamentoF: TorcamentoF
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
+      DisplayFormat.DateFormat = 'dd/mm/yyyy'
     end
     object zqOrcamentovl_total_orcamento: TZBCDField
       FieldKind = fkData
@@ -497,6 +501,8 @@ inherited orcamentoF: TorcamentoF
   end
   object zqOrcItem: TZQuery[6]
     Connection = DataModuleF.ZConnection1
+    AfterInsert = zqOrcItemAfterInsert
+    AfterPost = zqOrcItemAfterPost
     UpdateObject = zuOrcItem
     SQL.Strings = (
       'select orcamentoitemid,'
@@ -540,6 +546,7 @@ inherited orcamentoF: TorcamentoF
       Required = True
     end
     object zqOrcItemqt_produto: TZBCDField
+      DefaultExpression = '0'
       FieldKind = fkData
       FieldName = 'qt_produto'
       Index = 3
@@ -554,6 +561,7 @@ inherited orcamentoF: TorcamentoF
       Size = 2
     end
     object zqOrcItemvl_unitario: TZBCDField
+      DefaultExpression = '0'
       FieldKind = fkData
       FieldName = 'vl_unitario'
       Index = 4
@@ -568,6 +576,7 @@ inherited orcamentoF: TorcamentoF
       Size = 2
     end
     object zqOrcItemvl_total: TZBCDField
+      DefaultExpression = '0'
       FieldKind = fkData
       FieldName = 'vl_total'
       Index = 5
@@ -587,7 +596,7 @@ inherited orcamentoF: TorcamentoF
       Index = 6
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = True
+      ReadOnly = False
       Required = False
       Size = 50
     end

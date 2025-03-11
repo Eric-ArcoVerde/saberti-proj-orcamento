@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, DBGrids,
   DBCtrls, StdCtrls, Buttons, ZDataset, ZSqlUpdate, ZAbstractRODataset,
-  xCadPaiU, DB, dataModuleU, pesClienteU;
+  xCadPaiU, DB, dataModuleU, pesClienteU, inserirItemU;
 
 type
 
@@ -50,6 +50,7 @@ type
     zuOrcItem: TZUpdateSQL;
     procedure btnAdcItemClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
+    procedure btnDelItemClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure btnExcluirClick(Sender: TObject);
     procedure btnGravarClick(Sender: TObject);
@@ -60,9 +61,15 @@ type
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure tsCadastroExit(Sender: TObject);
+    procedure AbreOrcItens(orcamentoid : Integer);
+    procedure SomaItens;
+    procedure zqOrcamentoAfterInsert(DataSet: TDataSet);
+    procedure zqOrcItemAfterInsert(DataSet: TDataSet);
+    procedure zqOrcItemAfterPost(DataSet: TDataSet);
   private
 
   public
+
 
   end;
 
@@ -74,6 +81,61 @@ implementation
 {$R *.lfm}
 
 { TorcamentoF }
+
+
+
+procedure TOrcamentoF.SomaItens;
+begin
+  if not (zqOrcamento.State in [dsEdit, dsInsert]) then
+     zqOrcamento.Edit;
+
+  zqOrcItem.First;
+  zqOrcamentovl_total_orcamento.AsFloat:=0;
+
+  while not zqOrcItem.EOF do
+  begin
+   zqOrcamentovl_total_orcamento.AsFloat:=zqOrcamentovl_total_orcamento.AsFloat + zqOrcItemvl_total.AsFloat;
+   zqOrcItem.Next;
+  end;
+end;
+
+procedure TorcamentoF.zqOrcamentoAfterInsert(DataSet: TDataSet);
+begin
+  zqOrcamentoorcamentoid.AsInteger := StrToInt(dataModuleF.getSequence('orcamento_orcamentoid_seq'));
+end;
+
+procedure TorcamentoF.zqOrcItemAfterInsert(DataSet: TDataSet);
+begin
+  zqOrcItemorcamentoitemid.AsString :=  dataModuleF.getSequence('orcamento_item_oracamentoitemid_seq');
+  zqOrcItemorcamentoid.AsInteger := zqOrcamentoorcamentoid.AsInteger;
+end;
+
+procedure TorcamentoF.zqOrcItemAfterPost(DataSet: TDataSet);
+begin
+  SomaItens;
+end;
+
+procedure TOrcamentoF.AbreOrcItens(orcamentoid : Integer);
+begin
+  if orcamentoid <> 0 then
+  begin
+      zqOrcItem.Close;
+      zqOrcItem.SQL.Clear;
+      zqOrcItem.SQL.Add(
+                      'SELECT * '+
+                      //'ORCAMENTOITEMID, '+
+                      //'ORCAMENTOID, '+
+                      //'PRODUTOID, '+
+                      //'produtodesc, '+
+                      //'QT_PRODUTO, '+
+                      //'VL_UNITARIO, '+
+                      //'VL_TOTAL '+
+                      'FROM ORCAMENTO_ITEM ' +
+                      'WHERE ORCAMENTOID = '+ inttostr(orcamentoid) + ' ' +
+                      'ORDER BY ORCAMENTOID');
+       zqOrcItem.Open;
+  end;
+end;
 
 procedure TorcamentoF.btnPesqClick(Sender: TObject);
 begin
@@ -114,6 +176,7 @@ begin
    'where orcamentoid = ' +
    zqOrcamentoorcamentoid.AsString;
   zqOrcItem.Open;
+  AbreOrcItens(zqOrcamentoorcamentoid.AsInteger);
 end;
 
 procedure TorcamentoF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -138,11 +201,14 @@ begin
   inherited;
   zqOrcItem.Close;
   zqOrcamento.Insert;
+  AbreOrcItens(zqOrcamentoorcamentoid.AsInteger);
+  zqOrcamentodt_orcamento.AsDateTime := Date;
 end;
 
 procedure TorcamentoF.btnEditarClick(Sender: TObject);
 begin
   zqOrcamento.Edit;
+  zqOrcItem.Edit;
 end;
 
 procedure TorcamentoF.btnExcluirClick(Sender: TObject);
@@ -162,9 +228,16 @@ begin
   zqOrcamento.Cancel;
 end;
 
+procedure TorcamentoF.btnDelItemClick(Sender: TObject);
+begin
+  zqOrcItem.Delete;
+end;
+
 procedure TorcamentoF.btnAdcItemClick(Sender: TObject);
 begin
-
+  zqOrcItem.Insert;
+  inserirItemF:=TinserirItemF.Create(Self);
+  inserirItemF.ShowModal;
 end;
 
 procedure TorcamentoF.btnGravarClick(Sender: TObject);

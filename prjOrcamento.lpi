@@ -138,6 +138,7 @@
         <Filename Value="inseriritemu.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="inserirItemF"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="inserirItemU"/>
       </Unit>
@@ -145,8 +146,16 @@
         <Filename Value="pesqprodutou.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="pesqProdutosF"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="pesqProdutoU"/>
+      </Unit>
+      <Unit>
+        <Filename Value="relprodutos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="relProdutosF"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="relProdutos"/>
       </Unit>
     </Units>
   </ProjectOptions>

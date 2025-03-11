@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Buttons, ZDataset,
-  ZAbstractRODataset, LR_Class, LR_DBSet, dataModuleU;
+  ZAbstractRODataset, LR_Class, LR_DBSet, dataModuleU, LR_DSet;
 
 type
 
@@ -57,6 +57,7 @@ procedure TRelClientesF.FormShow(Sender: TObject);
 begin
   zqRelCliente.Open;
 end;
+
 
 end.
 

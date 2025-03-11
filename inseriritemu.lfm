@@ -1,7 +1,7 @@
 object inserirItemF: TinserirItemF
-  Left = 744
+  Left = 840
   Height = 267
-  Top = 254
+  Top = 206
   Width = 383
   Caption = 'Inserir Item'
   ClientHeight = 267
@@ -48,6 +48,8 @@ object inserirItemF: TinserirItemF
     Height = 23
     Top = 40
     Width = 80
+    DataField = 'produtoid'
+    DataSource = orcamentoF.dsOrcItem
     ReadOnly = True
     Color = clSilver
     MaxLength = 0
@@ -58,6 +60,8 @@ object inserirItemF: TinserirItemF
     Height = 23
     Top = 88
     Width = 285
+    DataField = 'produto_desc'
+    DataSource = orcamentoF.dsOrcItem
     ReadOnly = True
     Color = clSilver
     MaxLength = 0
@@ -68,22 +72,29 @@ object inserirItemF: TinserirItemF
     Height = 23
     Top = 168
     Width = 80
+    DataField = 'vl_unitario'
+    DataSource = orcamentoF.dsOrcItem
     MaxLength = 0
     TabOrder = 2
   end
-  object DBEdit4: TDBEdit
+  object edtQtde: TDBEdit
     Left = 35
     Height = 23
     Top = 168
     Width = 72
+    DataField = 'qt_produto'
+    DataSource = orcamentoF.dsOrcItem
     MaxLength = 0
     TabOrder = 3
+    OnExit = edtQtdeExit
   end
   object DBEdit5: TDBEdit
     Left = 240
     Height = 23
     Top = 168
     Width = 80
+    DataField = 'vl_total'
+    DataSource = orcamentoF.dsOrcItem
     MaxLength = 0
     TabOrder = 4
   end
@@ -112,6 +123,7 @@ object inserirItemF: TinserirItemF
       7000777770C07777700077777000777770007777777777777000777777777777
       7000
     }
+    OnClick = btnInserirClick
     TabOrder = 6
   end
   object btnCancelar: TBitBtn
@@ -130,17 +142,7 @@ object inserirItemF: TinserirItemF
       7477774474777777747777477744777748777777777744448777777777777777
       7777777777777777777777777777777777777777777777777777
     }
+    OnClick = btnCancelarClick
     TabOrder = 7
-  end
-  object dsAuxProduto: TDataSource
-    DataSet = zqAuxProduto
-    Left = 328
-    Top = 24
-  end
-  object zqAuxProduto: TZQuery
-    Connection = DataModuleF.ZConnection1
-    Params = <>
-    Left = 328
-    Top = 80
   end
 end

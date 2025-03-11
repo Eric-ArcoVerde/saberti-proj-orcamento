@@ -25,6 +25,7 @@ type
     procedure btnPesquisarClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormShow(Sender: TObject);
   private
 
   public
@@ -74,6 +75,11 @@ procedure TpesqCategoriaF.FormClose(Sender: TObject;
   var CloseAction: TCloseAction);
 begin
   CloseAction:=caFree;
+end;
+
+procedure TpesqCategoriaF.FormShow(Sender: TObject);
+begin
+  zqCategoriaAux.Open;
 end;
 
 end.

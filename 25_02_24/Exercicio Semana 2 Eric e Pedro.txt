@@ -146,3 +146,4 @@ select sum(oi.qt_produto),
 	   on oi.orcamentoid = o.orcamentoid
  group by o.orcamentoid; 
 	   	
+	   	

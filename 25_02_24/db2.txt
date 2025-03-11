@@ -14,6 +14,12 @@ select nextval ('usuarios_id_seq');
 
 select produtoid from produto, categoria_produto;
 
+create sequence orcamento_orcamentoid_seq;
+select nextval ('orcamento_orcamentoid_seq');
+
+create sequence orcamento_item_oracamentoitemid_seq;
+select nextval ('orcamento_item_oracamentoitemid_seq');
+
 --RELATORIO CLIENTES, SQL CAD CLIENTES
 select clienteid,
 tipo_cliente,
@@ -31,6 +37,15 @@ p.vl_venda_produto,
 p.dt_cadastro_produto,
 p.status_produto,
 p.categoriaprodutoid 
+from produto p
+order by p.produtoid; 
+
+--SQL REL PROD
+select p.ds_produto,
+p.obs_produto,
+p.vl_venda_produto,
+p.dt_cadastro_produto,
+p.status_produto
 from produto p
 order by p.produtoid; 
 

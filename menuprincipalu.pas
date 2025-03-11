@@ -14,7 +14,6 @@ type
 
   TMenuPrincipalF = class(TForm)
     MainMenu1: TMainMenu;
-    miRelTeste: TMenuItem;
     miRelOrcamento: TMenuItem;
     miRelCategorias: TMenuItem;
     miRelProdutos: TMenuItem;
@@ -35,6 +34,7 @@ type
     procedure miCadProdutosClick(Sender: TObject);
     procedure miCadUsuariosClick(Sender: TObject);
     procedure miOrcamentoClick(Sender: TObject);
+    procedure miRelCategoriasClick(Sender: TObject);
     procedure miRelClientesClick(Sender: TObject);
     procedure miSairClick(Sender: TObject);
   private
@@ -80,6 +80,11 @@ procedure TMenuPrincipalF.miOrcamentoClick(Sender: TObject);
 begin
   orcamentoF:=TorcamentoF.Create(Self);
   orcamentoF.ShowModal;
+end;
+
+procedure TMenuPrincipalF.miRelCategoriasClick(Sender: TObject);
+begin
+
 end;
 
 procedure TMenuPrincipalF.miRelClientesClick(Sender: TObject);

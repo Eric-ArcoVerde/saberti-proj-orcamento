@@ -53,9 +53,7 @@ object MenuPrincipalF: TMenuPrincipalF
       end
       object miRelCategorias: TMenuItem
         Caption = 'Categorias'
-      end
-      object miRelTeste: TMenuItem
-        Caption = 'Rel Teste Clientes'
+        OnClick = miRelCategoriasClick
       end
     end
     object miSobre: TMenuItem
