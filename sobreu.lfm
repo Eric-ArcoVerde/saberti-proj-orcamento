@@ -1,0 +1,39 @@
+object sobreF: TsobreF
+  Left = 316
+  Height = 515
+  Top = 155
+  Width = 526
+  Caption = 'sobreF'
+  ClientHeight = 515
+  ClientWidth = 526
+  DesignTimePPI = 120
+  LCLVersion = '3.8.0.0'
+  object Label1: TLabel
+    Left = 118
+    Height = 20
+    Top = 94
+    Width = 239
+    Caption = 'Sistema de Controle de Orçamentos'
+  end
+  object Label2: TLabel
+    Left = 110
+    Height = 20
+    Top = 137
+    Width = 70
+    Caption = 'Versão: 1.0'
+  end
+  object Label3: TLabel
+    Left = 118
+    Height = 20
+    Top = 196
+    Width = 187
+    Caption = 'Linguagem: Lazarus IDE v3.8'
+  end
+  object Label4: TLabel
+    Left = 119
+    Height = 20
+    Top = 249
+    Width = 225
+    Caption = 'Banco de Dados: PostgreSql 10.23'
+  end
+end

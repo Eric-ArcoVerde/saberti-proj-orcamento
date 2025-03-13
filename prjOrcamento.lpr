@@ -11,8 +11,9 @@ uses
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, zcomponent, xCadPaiU, menuPrincipalU, cadCategoriaU, dataModuleU,
-  cadClienteU, cadProdutosU, pesqCategoria, relClientesU, cadUsuarioU, 
-orcamentoU, pesClienteU, inserirItemU, pesqProdutoU, relProdutos;
+  cadClienteU, cadProdutosU, pesqCategoria, relClientesU, cadUsuarioU,
+  orcamentoU, pesClienteU, inserirItemU, pesqProdutoU, relProdutos,
+  relOrcamento, relCategorias, relOrcItemU, loginU, sobreU;
 
 {$R *.res}
 
@@ -21,8 +22,7 @@ begin
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TDataModuleF, DataModuleF);
-  Application.CreateForm(TMenuPrincipalF, MenuPrincipalF);
-  Application.CreateForm(TrelProdutosF, relProdutosF);
+  Application.CreateForm(TloginF, loginF);
   Application.Run;
 end.
 

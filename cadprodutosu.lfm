@@ -4,8 +4,8 @@ inherited cadProdutosF: TcadProdutosF
   Top = 179
   Width = 1164
   Caption = 'Cadastro de Produtos'
-  ClientHeight = 566
-  ClientWidth = 1164
+  ClientHeight = 0
+  ClientWidth = 0
   OnClose = FormClose
   OnShow = FormShow
   inherited PageControl1: TPageControl
@@ -13,17 +13,24 @@ inherited cadProdutosF: TcadProdutosF
     Width = 1164
     OnChanging = PageControl1Changing
     inherited tsPesquisar: TTabSheet
-      ClientHeight = 538
+      ClientHeight = 533
       ClientWidth = 1156
       inherited Panel1: TPanel
         Width = 1156
         ClientWidth = 1156
+        inherited Label1: TLabel
+          Height = 20
+          Width = 83
+        end
+        inherited edtPesq: TEdit
+          Height = 28
+        end
         inherited btnPesq: TSpeedButton
           OnClick = btnPesqClick
         end
       end
       inherited Panel2: TPanel
-        Top = 473
+        Top = 452
         Width = 1156
         ClientWidth = 1156
         inherited btnNovo: TBitBtn
@@ -34,7 +41,8 @@ inherited cadProdutosF: TcadProdutosF
         end
       end
       inherited DBGrid1: TDBGrid
-        Height = 423
+        Height = 390
+        Top = 62
         Width = 1156
         Columns = <        
           item
@@ -66,10 +74,10 @@ inherited cadProdutosF: TcadProdutosF
       end
     end
     inherited tsCadastro: TTabSheet
-      ClientHeight = 538
+      ClientHeight = 533
       ClientWidth = 1156
       inherited Panel3: TPanel
-        Top = 481
+        Top = 462
         Width = 1156
         ClientWidth = 1156
         TabOrder = 8
@@ -90,56 +98,56 @@ inherited cadProdutosF: TcadProdutosF
       end
       object Label2: TLabel[1]
         Left = 88
-        Height = 15
+        Height = 20
         Top = 28
-        Width = 14
+        Width = 18
         Caption = 'ID:'
       end
       object Label3: TLabel[2]
         Left = 48
-        Height = 15
+        Height = 20
         Top = 68
-        Width = 54
+        Width = 68
         Caption = 'Categoria:'
       end
       object Label4: TLabel[3]
         Left = 48
-        Height = 15
+        Height = 20
         Top = 108
-        Width = 54
+        Width = 68
         Caption = 'Descrição:'
       end
       object Label5: TLabel[4]
         Left = 37
-        Height = 15
+        Height = 20
         Top = 148
-        Width = 65
+        Width = 81
         Caption = 'Observação:'
       end
       object Label6: TLabel[5]
         Left = 424
-        Height = 15
+        Height = 20
         Top = 64
-        Width = 80
+        Width = 103
         Caption = 'Valor da Venda:'
       end
       object Label7: TLabel[6]
         Left = 390
-        Height = 15
+        Height = 20
         Top = 28
-        Width = 114
+        Width = 142
         Caption = 'Dt. Cadastro Produto:'
       end
       object Label8: TLabel[7]
         Left = 232
-        Height = 15
+        Height = 20
         Top = 28
-        Width = 35
+        Width = 43
         Caption = 'Status:'
       end
       object edtID: TDBEdit[8]
         Left = 112
-        Height = 23
+        Height = 28
         Top = 24
         Width = 48
         DataField = 'produtoid'
@@ -152,12 +160,12 @@ inherited cadProdutosF: TcadProdutosF
       end
       object cbStatus: TDBComboBox[9]
         Left = 272
-        Height = 23
+        Height = 28
         Top = 24
         Width = 100
         DataField = 'status_produto'
         DataSource = dsProdutos
-        ItemHeight = 15
+        ItemHeight = 20
         Items.Strings = (
           'ATIVO'
           'INATIVO'
@@ -167,7 +175,7 @@ inherited cadProdutosF: TcadProdutosF
       end
       object edtDataCadProd: TDBEdit[10]
         Left = 512
-        Height = 23
+        Height = 28
         Top = 24
         Width = 112
         DataField = 'dt_cadastro_produto'
@@ -178,18 +186,20 @@ inherited cadProdutosF: TcadProdutosF
       end
       object edtCategoria: TDBEdit[11]
         Left = 112
-        Height = 23
+        Height = 28
         Top = 64
         Width = 48
         DataField = 'categoriaprodutoid'
         DataSource = dsProdutos
+        ReadOnly = True
         Alignment = taCenter
+        Color = clSilver
         MaxLength = 0
         TabOrder = 3
       end
       object edtValorVenda: TDBEdit[12]
         Left = 512
-        Height = 23
+        Height = 28
         Top = 60
         Width = 112
         DataField = 'vl_venda_produto'
@@ -200,7 +210,7 @@ inherited cadProdutosF: TcadProdutosF
       end
       object edtDescricao: TDBEdit[13]
         Left = 112
-        Height = 23
+        Height = 28
         Top = 104
         Width = 512
         DataField = 'ds_produto'
@@ -219,7 +229,7 @@ inherited cadProdutosF: TcadProdutosF
       end
       object edtOBS: TDBEdit[15]
         Left = 112
-        Height = 23
+        Height = 28
         Top = 144
         Width = 512
         DataField = 'obs_produto'
@@ -229,9 +239,9 @@ inherited cadProdutosF: TcadProdutosF
       end
       object LbCat: TLabel[16]
         Left = 215
-        Height = 15
+        Height = 20
         Top = 68
-        Width = 28
+        Width = 35
         Caption = 'lbCat'
       end
     end
@@ -298,6 +308,7 @@ inherited cadProdutosF: TcadProdutosF
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
+      EditFormat = 'R$ '
       Precision = 15
       Currency = False
       MaxValue = 0
@@ -312,6 +323,7 @@ inherited cadProdutosF: TcadProdutosF
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
+      DisplayFormat.DateFormat = 'dd/mm/yyyy'
     end
     object zqProdutosstatus_produto: TZRawStringField
       FieldKind = fkData

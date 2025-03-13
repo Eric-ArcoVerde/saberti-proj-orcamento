@@ -1,10 +1,11 @@
 object DataModuleF: TDataModuleF
   OnCreate = DataModuleCreate
   OldCreateOrder = False
-  Height = 295
-  HorizontalOffset = 696
-  VerticalOffset = 198
-  Width = 282
+  Height = 369
+  HorizontalOffset = 870
+  VerticalOffset = 248
+  Width = 353
+  PPI = 120
   object ZConnection1: TZConnection
     ControlsCodePage = cCP_UTF8
     Properties.Strings = (
@@ -18,13 +19,14 @@ object DataModuleF: TDataModuleF
     User = 'postgres'
     Password = '12345'
     Protocol = 'postgresql'
-    Left = 112
-    Top = 32
+    LibraryLocation = 'C:\Program Files (x86)\PostgreSQL\10\bin\libpq.dll'
+    Left = 139
+    Top = 40
   end
   object zqGenerica: TZQuery
     Connection = ZConnection1
     Params = <>
-    Left = 111
-    Top = 147
+    Left = 139
+    Top = 184
   end
 end

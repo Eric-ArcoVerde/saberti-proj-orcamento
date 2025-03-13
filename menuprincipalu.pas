@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, cadCategoriaU,
-  cadProdutosU, relClientesU, cadClienteU, cadUsuarioU, orcamentoU;
+  cadProdutosU, cadClienteU, cadUsuarioU, orcamentoU, relCategorias, relProdutos,
+  relClientesU, relOrcamento,relOrcItemU, sobreU;
 
 type
 
@@ -36,7 +37,10 @@ type
     procedure miOrcamentoClick(Sender: TObject);
     procedure miRelCategoriasClick(Sender: TObject);
     procedure miRelClientesClick(Sender: TObject);
+    procedure miRelOrcamentoClick(Sender: TObject);
+    procedure miRelProdutosClick(Sender: TObject);
     procedure miSairClick(Sender: TObject);
+    procedure miSobreClick(Sender: TObject);
   private
 
   public
@@ -84,7 +88,8 @@ end;
 
 procedure TMenuPrincipalF.miRelCategoriasClick(Sender: TObject);
 begin
-
+  relCategoriasF:=TrelCategoriasF.Create(Self);
+  relCategoriasF.ShowModal;
 end;
 
 procedure TMenuPrincipalF.miRelClientesClick(Sender: TObject);
@@ -93,9 +98,27 @@ begin
   RelClientesF.ShowModal;
 end;
 
+procedure TMenuPrincipalF.miRelOrcamentoClick(Sender: TObject);
+begin
+  relOrcamentoF:=TrelOrcamentoF.Create(Self);
+  relOrcamentoF.ShowModal;
+end;
+
+procedure TMenuPrincipalF.miRelProdutosClick(Sender: TObject);
+begin
+  relProdutosF:=TrelProdutosF.Create(Self);
+  relProdutosF.ShowModal;
+end;
+
 procedure TMenuPrincipalF.miSairClick(Sender: TObject);
 begin
   Application.Terminate;
+end;
+
+procedure TMenuPrincipalF.miSobreClick(Sender: TObject);
+begin
+  sobreF := TsobreF.Create(Self);
+  sobreF.ShowModal;
 end;
 
 end.

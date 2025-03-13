@@ -4,12 +4,13 @@ object MenuPrincipalF: TMenuPrincipalF
   Top = 136
   Width = 592
   Caption = 'Menu Principal'
+  DesignTimePPI = 120
   Menu = MainMenu1
   LCLVersion = '3.8.0.0'
   WindowState = wsMaximized
   object MainMenu1: TMainMenu
-    Left = 192
-    Top = 40
+    Left = 240
+    Top = 50
     object miCadastros: TMenuItem
       Caption = 'Cadastros'
       object miCadCategoria: TMenuItem
@@ -47,9 +48,11 @@ object MenuPrincipalF: TMenuPrincipalF
       end
       object miRelProdutos: TMenuItem
         Caption = 'Produtos'
+        OnClick = miRelProdutosClick
       end
       object miRelOrcamento: TMenuItem
         Caption = 'Orçamento'
+        OnClick = miRelOrcamentoClick
       end
       object miRelCategorias: TMenuItem
         Caption = 'Categorias'
@@ -58,6 +61,7 @@ object MenuPrincipalF: TMenuPrincipalF
     end
     object miSobre: TMenuItem
       Caption = 'Sobre'
+      OnClick = miSobreClick
     end
     object miSair: TMenuItem
       Caption = 'Sair'

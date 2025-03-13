@@ -1,20 +1,21 @@
 object RelClientesF: TRelClientesF
-  Left = 1075
-  Height = 178
-  Top = 276
-  Width = 515
+  Left = 1076
+  Height = 222
+  Top = 277
+  Width = 644
   Caption = 'Relatorio de Clientes'
-  ClientHeight = 178
-  ClientWidth = 515
+  ClientHeight = 222
+  ClientWidth = 644
+  DesignTimePPI = 120
   OnClose = FormClose
   OnShow = FormShow
   Position = poScreenCenter
   LCLVersion = '3.8.0.0'
   object btnImpressao: TBitBtn
-    Left = 64
-    Height = 65
-    Top = 24
-    Width = 368
+    Left = 80
+    Height = 81
+    Top = 32
+    Width = 460
     Caption = 'Impressão de Relatório'
     Glyph.Data = {
       EE030000424DEE03000000000000360000002800000012000000110000000100
@@ -59,16 +60,17 @@ object RelClientesF: TRelClientesF
     Options = []
     PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit, pbSettings, pbPageSetup]
     DataType = dtDataSet
-    Left = 136
-    Top = 112
+    Left = 170
+    Top = 140
   end
   object frDBDSRelCliente: TfrDBDataSet
     DataSet = zqRelCliente
-    Left = 224
-    Top = 112
+    Left = 280
+    Top = 140
   end
   object zqRelCliente: TZQuery
     Connection = DataModuleF.ZConnection1
+    Active = True
     SQL.Strings = (
       'select clienteid,'
       'tipo_cliente,'
@@ -77,8 +79,8 @@ object RelClientesF: TRelClientesF
       'from cliente'
     )
     Params = <>
-    Left = 312
-    Top = 112
+    Left = 390
+    Top = 140
     object zqRelClienteclienteid: TZIntegerField
       FieldKind = fkData
       FieldName = 'clienteid'

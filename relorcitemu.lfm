@@ -1,20 +1,19 @@
-object relProdutosF: TrelProdutosF
-  Left = 444
-  Height = 244
-  Top = 235
-  Width = 653
-  Caption = 'Relátorio de Produtos'
-  ClientHeight = 244
-  ClientWidth = 653
+object relOrcItemF: TrelOrcItemF
+  Left = 417
+  Height = 269
+  Top = 263
+  Width = 651
+  Caption = 'Relátorio dos Itens do Orçamento'
+  ClientHeight = 269
+  ClientWidth = 651
   DesignTimePPI = 120
   OnClose = FormClose
   OnShow = FormShow
-  Position = poDesktopCenter
   LCLVersion = '3.8.0.0'
   object btnImpressao: TBitBtn
-    Left = 80
+    Left = 96
     Height = 81
-    Top = 30
+    Top = 40
     Width = 460
     Caption = 'Impressão de Relatório'
     Glyph.Data = {
@@ -51,73 +50,72 @@ object relProdutosF: TrelProdutosF
       BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
       BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF0000
     }
-    OnClick = btnImpressaoClick
     TabOrder = 0
   end
-  object frRelProd: TfrReport
-    Dataset = frDBDSRelProd
+  object frRelOcrItem: TfrReport
+    Dataset = frDBDSRelOrcItem
     InitialZoom = pzDefault
     Options = []
     PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit, pbSettings, pbPageSetup]
     DataType = dtDataSet
-    Left = 141
-    Top = 149
+    Left = 136
+    Top = 160
   end
-  object frDBDSRelProd: TfrDBDataSet
-    DataSet = zqRelProd
-    Left = 280
-    Top = 149
+  object frDBDSRelOrcItem: TfrDBDataSet
+    DataSet = zqRelOrcItem
+    Left = 264
+    Top = 160
   end
-  object zqRelProd: TZQuery
+  object zqRelOrcItem: TZQuery
     Connection = DataModuleF.ZConnection1
     SQL.Strings = (
-      'select p.produtoid,'
-      'p.ds_produto,'
-      'p.obs_produto,'
-      'p.vl_venda_produto,'
-      'p.dt_cadastro_produto,'
-      'p.status_produto,'
-      '(select ds_categoria_produto  '
-      'from categoria_produto'
-      'where categoriaprodutoid=p.categoriaprodutoid )'
-      'from produto p'
-      'order by p.produtoid; '
+      'select orcamentoitemid,'
+      'orcamentoid,'
+      'qt_produto,'
+      'vl_unitario,'
+      'vl_total,'
+      'produto_desc'
+      'from orcamento_item'
+      'order by orcamentoitemid;'
     )
     Params = <>
-    Left = 424
-    Top = 149
-    object zqRelProdprodutoid: TZIntegerField
+    Left = 384
+    Top = 160
+    object zqRelOrcItemorcamentoitemid: TZIntegerField
       FieldKind = fkData
-      FieldName = 'produtoid'
+      FieldName = 'orcamentoitemid'
       Index = 0
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
     end
-    object zqRelProdds_produto: TZRawStringField
+    object zqRelOrcItemorcamentoid: TZIntegerField
       FieldKind = fkData
-      FieldName = 'ds_produto'
+      FieldName = 'orcamentoid'
       Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
-      Size = 50
     end
-    object zqRelProdobs_produto: TZRawStringField
+    object zqRelOrcItemqt_produto: TZBCDField
       FieldKind = fkData
-      FieldName = 'obs_produto'
+      FieldName = 'qt_produto'
       Index = 2
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
-      Required = False
-      Size = 300
+      Required = True
+      Precision = 15
+      Currency = False
+      MaxValue = 0
+      MinValue = 0
+      Size = 2
     end
-    object zqRelProdvl_venda_produto: TZBCDField
+    object zqRelOrcItemvl_unitario: TZBCDField
       FieldKind = fkData
-      FieldName = 'vl_venda_produto'
+      FieldName = 'vl_unitario'
       Index = 3
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
@@ -129,32 +127,27 @@ object relProdutosF: TrelProdutosF
       MinValue = 0
       Size = 2
     end
-    object zqRelProddt_cadastro_produto: TZDateTimeField
+    object zqRelOrcItemvl_total: TZBCDField
       FieldKind = fkData
-      FieldName = 'dt_cadastro_produto'
+      FieldName = 'vl_total'
       Index = 4
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
+      Precision = 15
+      Currency = False
+      MaxValue = 0
+      MinValue = 0
+      Size = 2
     end
-    object zqRelProdstatus_produto: TZRawStringField
+    object zqRelOrcItemproduto_desc: TZRawStringField
       FieldKind = fkData
-      FieldName = 'status_produto'
+      FieldName = 'produto_desc'
       Index = 5
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
-      Required = True
-      Size = 10
-    end
-    object zqRelProdds_categoria_produto: TZRawStringField
-      FieldKind = fkData
-      FieldName = 'ds_categoria_produto'
-      Index = 6
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = True
       Required = False
       Size = 50
     end

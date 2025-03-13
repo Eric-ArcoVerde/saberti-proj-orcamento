@@ -6,8 +6,9 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, DBGrids,
-  DBCtrls, StdCtrls, Buttons, ZDataset, ZSqlUpdate, ZAbstractRODataset,
-  xCadPaiU, DB, dataModuleU, pesClienteU, inserirItemU;
+  DBCtrls, StdCtrls, Buttons, LR_DBSet, LR_Class, ZDataset, ZSqlUpdate,
+  ZAbstractRODataset, xCadPaiU, DB, dataModuleU, pesClienteU, inserirItemU,
+  relOrcItemU;
 
 type
 
@@ -16,6 +17,7 @@ type
   TorcamentoF = class(TxCadPaiF)
     btnAdcItem: TBitBtn;
     btnDelItem: TBitBtn;
+    btnImpressao: TBitBtn;
     btnPesqCliente: TBitBtn;
     edtID: TDBEdit;
     edtCliente: TDBEdit;
@@ -25,6 +27,8 @@ type
     dbGridOrcItem: TDBGrid;
     dsOrcItem: TDataSource;
     dsOrcamento: TDataSource;
+    frDBDSRelOrcItem: TfrDBDataSet;
+    frRelOcrItem: TfrReport;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
@@ -54,6 +58,7 @@ type
     procedure btnEditarClick(Sender: TObject);
     procedure btnExcluirClick(Sender: TObject);
     procedure btnGravarClick(Sender: TObject);
+    procedure btnImpressaoClick(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
     procedure btnPesqClick(Sender: TObject);
     procedure btnPesqClienteClick(Sender: TObject);
@@ -102,6 +107,8 @@ end;
 procedure TorcamentoF.zqOrcamentoAfterInsert(DataSet: TDataSet);
 begin
   zqOrcamentoorcamentoid.AsInteger := StrToInt(dataModuleF.getSequence('orcamento_orcamentoid_seq'));
+  zqOrcamentodt_orcamento.AsDateTime := StrToDate(formatdatetime('dd/mm/yyyy', now));
+  zqOrcamentodt_validade_orcamento.AsDateTime := StrToDate(formatdatetime('dd/mm/yyyy', now + 15));
 end;
 
 procedure TorcamentoF.zqOrcItemAfterInsert(DataSet: TDataSet);
@@ -202,7 +209,6 @@ begin
   zqOrcItem.Close;
   zqOrcamento.Insert;
   AbreOrcItens(zqOrcamentoorcamentoid.AsInteger);
-  zqOrcamentodt_orcamento.AsDateTime := Date;
 end;
 
 procedure TorcamentoF.btnEditarClick(Sender: TObject);
@@ -231,6 +237,7 @@ end;
 procedure TorcamentoF.btnDelItemClick(Sender: TObject);
 begin
   zqOrcItem.Delete;
+  SomaItens;
 end;
 
 procedure TorcamentoF.btnAdcItemClick(Sender: TObject);
@@ -244,6 +251,13 @@ procedure TorcamentoF.btnGravarClick(Sender: TObject);
 begin
   inherited;
   zqOrcamento.Post;
+end;
+
+procedure TorcamentoF.btnImpressaoClick(Sender: TObject);
+begin
+  frRelOcrItem.LoadFromFile('relOrcItem.lrf');
+  frRelOcrItem.PrepareReport;
+  frRelOcrItem.ShowReport;
 end;
 
 end.

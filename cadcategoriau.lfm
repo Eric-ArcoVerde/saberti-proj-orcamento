@@ -1,24 +1,46 @@
 inherited cadCategoriaF: TcadCategoriaF
-  Left = 883
+  Left = 875
   Top = 217
   Caption = 'Cadastro de Categoria'
   OnClose = FormClose
   OnShow = FormShow
   inherited PageControl1: TPageControl
+    Height = 706
+    Width = 1035
     OnChanging = PageControl1Changing
     inherited tsPesquisar: TTabSheet
+      ClientHeight = 673
+      ClientWidth = 1027
       inherited Panel1: TPanel
+        Width = 1027
+        ClientWidth = 1027
+        inherited Label1: TLabel
+          Height = 20
+          Width = 83
+        end
+        inherited edtPesq: TEdit
+          Height = 28
+        end
         inherited btnPesq: TSpeedButton
           OnClick = btnPesqClick
         end
       end
       inherited Panel2: TPanel
+        Top = 592
+        Width = 1027
+        ClientWidth = 1027
         TabOrder = 2
         inherited btnNovo: TBitBtn
           OnClick = btnNovoClick
         end
+        inherited btnSair: TBitBtn
+          Left = 912
+        end
       end
       inherited DBGrid1: TDBGrid
+        Height = 530
+        Top = 62
+        Width = 1027
         Columns = <        
           item
             Alignment = taCenter
@@ -42,7 +64,12 @@ inherited cadCategoriaF: TcadCategoriaF
       end
     end
     inherited tsCadastro: TTabSheet
+      ClientHeight = 673
+      ClientWidth = 1027
       inherited Panel3: TPanel
+        Top = 602
+        Width = 1027
+        ClientWidth = 1027
         TabOrder = 2
         inherited btnGravar: TBitBtn
           OnClick = btnGravarClick
@@ -51,33 +78,36 @@ inherited cadCategoriaF: TcadCategoriaF
           OnClick = btnEditarClick
         end
         inherited btnCancelar: TBitBtn
+          Left = 479
           OnClick = btnCancelarClick
         end
         inherited btnExcluir: TBitBtn
+          Left = 912
           OnClick = btnExcluirClick
         end
       end
       object Label2: TLabel[1]
         Left = 64
-        Height = 15
+        Height = 20
         Top = 28
-        Width = 14
+        Width = 18
         Caption = 'ID:'
       end
       object Label3: TLabel[2]
         Left = 24
-        Height = 15
+        Height = 20
         Top = 60
-        Width = 54
+        Width = 68
         Caption = 'Descrição:'
       end
       object edtID: TDBEdit[3]
         Left = 90
-        Height = 23
+        Height = 28
         Top = 24
         Width = 46
         DataField = 'categoriaprodutoid'
         DataSource = dsCategorias
+        ReadOnly = True
         Alignment = taRightJustify
         Color = clSilver
         MaxLength = 0
@@ -85,7 +115,7 @@ inherited cadCategoriaF: TcadCategoriaF
       end
       object edtDesc: TDBEdit[4]
         Left = 90
-        Height = 23
+        Height = 28
         Top = 56
         Width = 104
         DataField = 'ds_categoria_produto'

@@ -1,11 +1,11 @@
-object relProdutosF: TrelProdutosF
-  Left = 444
-  Height = 244
-  Top = 235
-  Width = 653
-  Caption = 'Relátorio de Produtos'
-  ClientHeight = 244
-  ClientWidth = 653
+object relCategoriasF: TrelCategoriasF
+  Left = 486
+  Height = 235
+  Top = 303
+  Width = 688
+  Caption = 'Relatório de Categorias'
+  ClientHeight = 235
+  ClientWidth = 688
   DesignTimePPI = 120
   OnClose = FormClose
   OnShow = FormShow
@@ -54,50 +54,27 @@ object relProdutosF: TrelProdutosF
     OnClick = btnImpressaoClick
     TabOrder = 0
   end
-  object frRelProd: TfrReport
-    Dataset = frDBDSRelProd
-    InitialZoom = pzDefault
-    Options = []
-    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit, pbSettings, pbPageSetup]
-    DataType = dtDataSet
-    Left = 141
-    Top = 149
-  end
-  object frDBDSRelProd: TfrDBDataSet
-    DataSet = zqRelProd
-    Left = 280
-    Top = 149
-  end
-  object zqRelProd: TZQuery
+  object zqRelCategorias: TZQuery
     Connection = DataModuleF.ZConnection1
     SQL.Strings = (
-      'select p.produtoid,'
-      'p.ds_produto,'
-      'p.obs_produto,'
-      'p.vl_venda_produto,'
-      'p.dt_cadastro_produto,'
-      'p.status_produto,'
-      '(select ds_categoria_produto  '
-      'from categoria_produto'
-      'where categoriaprodutoid=p.categoriaprodutoid )'
-      'from produto p'
-      'order by p.produtoid; '
+      'select * from categoria_produto'
+      'order by categoriaprodutoid'
     )
     Params = <>
-    Left = 424
-    Top = 149
-    object zqRelProdprodutoid: TZIntegerField
+    Left = 503
+    Top = 144
+    object zqRelCategoriascategoriaprodutoid: TZIntegerField
       FieldKind = fkData
-      FieldName = 'produtoid'
+      FieldName = 'categoriaprodutoid'
       Index = 0
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
     end
-    object zqRelProdds_produto: TZRawStringField
+    object zqRelCategoriasds_categoria_produto: TZRawStringField
       FieldKind = fkData
-      FieldName = 'ds_produto'
+      FieldName = 'ds_categoria_produto'
       Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
@@ -105,58 +82,19 @@ object relProdutosF: TrelProdutosF
       Required = True
       Size = 50
     end
-    object zqRelProdobs_produto: TZRawStringField
-      FieldKind = fkData
-      FieldName = 'obs_produto'
-      Index = 2
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 300
-    end
-    object zqRelProdvl_venda_produto: TZBCDField
-      FieldKind = fkData
-      FieldName = 'vl_venda_produto'
-      Index = 3
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = True
-      Precision = 15
-      Currency = False
-      MaxValue = 0
-      MinValue = 0
-      Size = 2
-    end
-    object zqRelProddt_cadastro_produto: TZDateTimeField
-      FieldKind = fkData
-      FieldName = 'dt_cadastro_produto'
-      Index = 4
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = True
-    end
-    object zqRelProdstatus_produto: TZRawStringField
-      FieldKind = fkData
-      FieldName = 'status_produto'
-      Index = 5
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = True
-      Size = 10
-    end
-    object zqRelProdds_categoria_produto: TZRawStringField
-      FieldKind = fkData
-      FieldName = 'ds_categoria_produto'
-      Index = 6
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = True
-      Required = False
-      Size = 50
-    end
+  end
+  object frRelCategorias: TfrReport
+    Dataset = frDBDSRelCategorias
+    InitialZoom = pzDefault
+    Options = []
+    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit, pbSettings, pbPageSetup]
+    DataType = dtDataSet
+    Left = 91
+    Top = 144
+  end
+  object frDBDSRelCategorias: TfrDBDataSet
+    DataSet = zqRelCategorias
+    Left = 288
+    Top = 144
   end
 end
