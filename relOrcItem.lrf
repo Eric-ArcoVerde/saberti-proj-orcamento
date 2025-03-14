@@ -7,7 +7,7 @@
     <KeyWords Value=""/>
     <Comments Value=""/>
     <ReportCreateDate Value="1899-12-30 00:00:00"/>
-    <ReportLastChange Value="2025-03-13 18:08:28"/>
+    <ReportLastChange Value="2025-03-14 17:54:15"/>
     <ReportVersionBuild Value=""/>
     <ReportVersionMajor Value=""/>
     <ReportVersionMinor Value=""/>
@@ -103,7 +103,7 @@
           <StreamMode Value="0"/>
           <Size>
             <Left Value="0"/>
-            <Top Value="244"/>
+            <Top Value="236"/>
             <Width Value="752"/>
             <Height Value="40"/>
           </Size>
@@ -159,7 +159,7 @@
           <StreamMode Value="0"/>
           <Size>
             <Left Value="0"/>
-            <Top Value="308"/>
+            <Top Value="296"/>
             <Width Value="752"/>
             <Height Value="72"/>
           </Size>
@@ -239,7 +239,7 @@
           <Data>
             <Format Value="556"/>
             <FormatStr Value=""/>
-            <Memo Value="Orçamento nº &#xD;&#xA;"/>
+            <Memo Value="Orçamento nº [zqOrcamento.&quot;orcamentoid&quot;]&#xD;&#xA;"/>
             <Script Value=""/>
             <GapX Value="0"/>
             <GapY Value="0"/>
@@ -446,9 +446,9 @@
           <Typ Value="gtMemo"/>
           <StreamMode Value="0"/>
           <Size>
-            <Left Value="456"/>
+            <Left Value="380"/>
             <Top Value="180"/>
-            <Width Value="104"/>
+            <Width Value="60"/>
             <Height Value="20"/>
           </Size>
           <Flags Value="3"/>
@@ -463,7 +463,7 @@
           <Data>
             <Format Value="556"/>
             <FormatStr Value=""/>
-            <Memo Value="Qtde. Produto&#xD;&#xA;"/>
+            <Memo Value="Qtde.&#xD;&#xA;"/>
             <Script Value=""/>
             <GapX Value="0"/>
             <GapY Value="0"/>
@@ -503,7 +503,7 @@
           <StreamMode Value="0"/>
           <Size>
             <Left Value="92"/>
-            <Top Value="252"/>
+            <Top Value="244"/>
             <Width Value="40"/>
             <Height Value="20"/>
           </Size>
@@ -558,8 +558,8 @@
           <Typ Value="gtMemo"/>
           <StreamMode Value="0"/>
           <Size>
-            <Left Value="524"/>
-            <Top Value="332"/>
+            <Left Value="516"/>
+            <Top Value="320"/>
             <Width Value="60"/>
             <Height Value="18"/>
           </Size>
@@ -575,7 +575,7 @@
           <Data>
             <Format Value="556"/>
             <FormatStr Value=""/>
-            <Memo Value="[zqOrcItem.&quot;orcamentoid&quot;]&#xD;&#xA;"/>
+            <Memo Value="Total:&#xD;&#xA;"/>
             <Script Value=""/>
             <GapX Value="0"/>
             <GapY Value="0"/>
@@ -601,7 +601,7 @@
             <FillColor Value="clWhite"/>
             <HighlightStr Value=""/>
           </Highlight>
-          <Alignment Value="taLeftJustify"/>
+          <Alignment Value="taRightJustify"/>
           <Layout Value="tlTop"/>
           <Angle Value="0"/>
           <Justify Value="False"/>
@@ -615,7 +615,7 @@
           <StreamMode Value="0"/>
           <Size>
             <Left Value="168"/>
-            <Top Value="252"/>
+            <Top Value="244"/>
             <Width Value="144"/>
             <Height Value="18"/>
           </Size>
@@ -670,9 +670,9 @@
           <Typ Value="gtMemo"/>
           <StreamMode Value="0"/>
           <Size>
-            <Left Value="632"/>
-            <Top Value="332"/>
-            <Width Value="72"/>
+            <Left Value="596"/>
+            <Top Value="320"/>
+            <Width Value="108"/>
             <Height Value="18"/>
           </Size>
           <Flags Value="3"/>
@@ -782,8 +782,8 @@
           <Typ Value="gtMemo"/>
           <StreamMode Value="0"/>
           <Size>
-            <Left Value="464"/>
-            <Top Value="252"/>
+            <Left Value="472"/>
+            <Top Value="244"/>
             <Width Value="128"/>
             <Height Value="20"/>
           </Size>
@@ -895,7 +895,7 @@
           <StreamMode Value="0"/>
           <Size>
             <Left Value="624"/>
-            <Top Value="252"/>
+            <Top Value="244"/>
             <Width Value="96"/>
             <Height Value="20"/>
           </Size>
@@ -943,7 +943,119 @@
           <Justify Value="False"/>
           <Cursor Value="0"/>
         </Object19>
-        <ObjectCount Value="19"/>
+        <Object20>
+          <Name Value="Memo4"/>
+          <ClassName Value="TfrMemoView"/>
+          <Visible Value="True"/>
+          <Typ Value="gtMemo"/>
+          <StreamMode Value="0"/>
+          <Size>
+            <Left Value="476"/>
+            <Top Value="180"/>
+            <Width Value="96"/>
+            <Height Value="18"/>
+          </Size>
+          <Flags Value="3"/>
+          <FillColor Value="clNone"/>
+          <Frames>
+            <FrameColor Value="clBlack"/>
+            <FrameStyle Value="frsSolid"/>
+            <FrameWidth Value="1"/>
+            <FrameBorders Value=""/>
+            <Restrictions Value=""/>
+          </Frames>
+          <Data>
+            <Format Value="556"/>
+            <FormatStr Value=""/>
+            <Memo Value="Vl. Unit.&#xD;&#xA;"/>
+            <Script Value=""/>
+            <GapX Value="0"/>
+            <GapY Value="0"/>
+            <OnClick Value=""/>
+            <OnMouseEnter Value=""/>
+            <OnMouseLeave Value=""/>
+            <DetailReport Value=""/>
+            <ParagraphGap Value="0"/>
+            <LineSpacing Value="2"/>
+          </Data>
+          <Tag Value=""/>
+          <FURLInfo Value=""/>
+          <Font>
+            <Name Value="Arial"/>
+            <Size Value="12"/>
+            <Color Value="clBlack"/>
+            <Charset Value="0"/>
+            <Style Value=""/>
+          </Font>
+          <Highlight>
+            <FontStyle Value="2"/>
+            <FontColor Value="clBlack"/>
+            <FillColor Value="clWhite"/>
+            <HighlightStr Value=""/>
+          </Highlight>
+          <Alignment Value="taLeftJustify"/>
+          <Layout Value="tlTop"/>
+          <Angle Value="0"/>
+          <Justify Value="False"/>
+          <Cursor Value="0"/>
+        </Object20>
+        <Object21>
+          <Name Value="Memo12"/>
+          <ClassName Value="TfrMemoView"/>
+          <Visible Value="True"/>
+          <Typ Value="gtMemo"/>
+          <StreamMode Value="0"/>
+          <Size>
+            <Left Value="384"/>
+            <Top Value="248"/>
+            <Width Value="52"/>
+            <Height Value="20"/>
+          </Size>
+          <Flags Value="3"/>
+          <FillColor Value="clNone"/>
+          <Frames>
+            <FrameColor Value="clBlack"/>
+            <FrameStyle Value="frsSolid"/>
+            <FrameWidth Value="1"/>
+            <FrameBorders Value=""/>
+            <Restrictions Value=""/>
+          </Frames>
+          <Data>
+            <Format Value="556"/>
+            <FormatStr Value=""/>
+            <Memo Value="[zqOrcItem.&quot;qt_produto&quot;]&#xD;&#xA;"/>
+            <Script Value=""/>
+            <GapX Value="0"/>
+            <GapY Value="0"/>
+            <OnClick Value=""/>
+            <OnMouseEnter Value=""/>
+            <OnMouseLeave Value=""/>
+            <DetailReport Value=""/>
+            <ParagraphGap Value="0"/>
+            <LineSpacing Value="2"/>
+          </Data>
+          <Tag Value=""/>
+          <FURLInfo Value=""/>
+          <Font>
+            <Name Value="Arial"/>
+            <Size Value="10"/>
+            <Color Value="clBlack"/>
+            <Charset Value="0"/>
+            <Style Value=""/>
+          </Font>
+          <Highlight>
+            <FontStyle Value="2"/>
+            <FontColor Value="clBlack"/>
+            <FillColor Value="clWhite"/>
+            <HighlightStr Value=""/>
+          </Highlight>
+          <Alignment Value="taLeftJustify"/>
+          <Layout Value="tlTop"/>
+          <Angle Value="0"/>
+          <Justify Value="False"/>
+          <Cursor Value="0"/>
+        </Object21>
+        <ObjectCount Value="21"/>
       </Page1>
       <FVal>
         <Count Value="0"/>

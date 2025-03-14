@@ -186,6 +186,7 @@
         <Filename Value="loginu.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="loginF"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="loginU"/>
       </Unit>

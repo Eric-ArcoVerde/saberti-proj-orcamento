@@ -6,6 +6,7 @@ object xCadPaiF: TxCadPaiF
   Caption = 'xCadPai'
   ClientHeight = 565
   ClientWidth = 828
+  DesignTimePPI = 120
   OnClose = FormClose
   OnShow = FormShow
   LCLVersion = '3.8.0.0'
@@ -22,37 +23,37 @@ object xCadPaiF: TxCadPaiF
     OnChanging = PageControl1Changing
     object tsPesquisar: TTabSheet
       Caption = 'Pesquisar'
-      ClientHeight = 537
+      ClientHeight = 532
       ClientWidth = 820
       object Panel1: TPanel
         Left = 0
-        Height = 50
+        Height = 62
         Top = 0
         Width = 820
         Align = alTop
-        ClientHeight = 50
+        ClientHeight = 62
         ClientWidth = 820
         TabOrder = 0
         object Label1: TLabel
-          Left = 16
-          Height = 15
-          Top = 18
-          Width = 67
+          Left = 20
+          Height = 20
+          Top = 22
+          Width = 83
           Caption = 'Pesquisar ID:'
         end
         object edtPesq: TEdit
-          Left = 88
-          Height = 23
-          Top = 14
-          Width = 48
+          Left = 110
+          Height = 28
+          Top = 18
+          Width = 60
           NumbersOnly = True
           TabOrder = 0
         end
         object btnPesq: TSpeedButton
-          Left = 152
-          Height = 22
-          Top = 14
-          Width = 23
+          Left = 190
+          Height = 28
+          Top = 18
+          Width = 29
           Glyph.Data = {
             42010000424D4201000000000000760000002800000011000000110000000100
             040000000000CC00000000000000000000001000000010000000000000000000
@@ -70,18 +71,18 @@ object xCadPaiF: TxCadPaiF
       end
       object Panel2: TPanel
         Left = 0
-        Height = 65
-        Top = 472
+        Height = 81
+        Top = 451
         Width = 820
         Align = alBottom
-        ClientHeight = 65
+        ClientHeight = 81
         ClientWidth = 820
         TabOrder = 1
         object btnNovo: TBitBtn
-          Left = 16
-          Height = 30
-          Top = 16
-          Width = 75
+          Left = 20
+          Height = 38
+          Top = 19
+          Width = 94
           Anchors = [akLeft, akBottom]
           Caption = 'Novo'
           Glyph.Data = {
@@ -98,10 +99,10 @@ object xCadPaiF: TxCadPaiF
           TabOrder = 0
         end
         object btnSair: TBitBtn
-          Left = 728
-          Height = 30
-          Top = 16
-          Width = 75
+          Left = 705
+          Height = 38
+          Top = 19
+          Width = 94
           Anchors = [akRight, akBottom]
           Caption = 'Sair'
           Glyph.Data = {
@@ -180,8 +181,8 @@ object xCadPaiF: TxCadPaiF
       end
       object DBGrid1: TDBGrid
         Left = 0
-        Height = 422
-        Top = 50
+        Height = 389
+        Top = 62
         Width = 820
         Align = alClient
         Color = clWindow
@@ -193,22 +194,22 @@ object xCadPaiF: TxCadPaiF
     end
     object tsCadastro: TTabSheet
       Caption = 'Cadastro'
-      ClientHeight = 537
+      ClientHeight = 532
       ClientWidth = 820
       object Panel3: TPanel
         Left = 0
-        Height = 57
-        Top = 480
+        Height = 71
+        Top = 461
         Width = 820
         Align = alBottom
-        ClientHeight = 57
+        ClientHeight = 71
         ClientWidth = 820
         TabOrder = 0
         object btnGravar: TBitBtn
-          Left = 16
-          Height = 30
-          Top = 8
-          Width = 75
+          Left = 20
+          Height = 38
+          Top = 9
+          Width = 94
           Anchors = [akLeft, akBottom]
           Caption = 'Gravar'
           Glyph.Data = {
@@ -243,10 +244,10 @@ object xCadPaiF: TxCadPaiF
           TabOrder = 0
         end
         object btnEditar: TBitBtn
-          Left = 112
-          Height = 30
-          Top = 8
-          Width = 75
+          Left = 140
+          Height = 38
+          Top = 9
+          Width = 94
           Anchors = [akLeft, akBottom]
           Caption = 'Editar'
           Glyph.Data = {
@@ -265,10 +266,10 @@ object xCadPaiF: TxCadPaiF
           TabOrder = 1
         end
         object btnCancelar: TBitBtn
-          Left = 373
-          Height = 30
-          Top = 8
-          Width = 75
+          Left = 367
+          Height = 38
+          Top = 9
+          Width = 94
           Anchors = [akBottom]
           Caption = 'Cancelar'
           Glyph.Data = {
@@ -303,10 +304,10 @@ object xCadPaiF: TxCadPaiF
           TabOrder = 2
         end
         object btnExcluir: TBitBtn
-          Left = 728
-          Height = 30
-          Top = 8
-          Width = 75
+          Left = 705
+          Height = 38
+          Top = 9
+          Width = 94
           Anchors = [akRight, akBottom]
           Caption = 'Excluir'
           Glyph.Data = {

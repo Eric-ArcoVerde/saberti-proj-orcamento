@@ -51,17 +51,17 @@ begin
   inherited;
   zqCategorias.Open;
 end;
-
-procedure TcadCategoriaF.zqCategoriasAfterInsert(DataSet: TDataSet);
-begin
-  zqCategoriascategoriaprodutoid.AsInteger:=StrToInt(DataModuleF.getSequence('categoria_produto_categoriaprodutoid'));
-end;
-
+  
 procedure TcadCategoriaF.FormClose(Sender: TObject;
   var CloseAction: TCloseAction);
 begin
   inherited;
   zqCategorias.Close;
+end;
+
+procedure TcadCategoriaF.zqCategoriasAfterInsert(DataSet: TDataSet);
+begin
+  zqCategoriascategoriaprodutoid.AsInteger:=StrToInt(DataModuleF.getSequence('categoria_produto_categoriaprodutoid'));
 end;
 
 procedure TcadCategoriaF.btnNovoClick(Sender: TObject);

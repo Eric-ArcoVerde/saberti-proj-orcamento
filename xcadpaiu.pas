@@ -53,18 +53,38 @@ implementation
 
 { TxCadPaiF }
 
+procedure TxCadPaiF.FormShow(Sender: TObject);
+begin
+  PageControl1.PageIndex:=0;
+end;
+
+procedure TxCadPaiF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  CloseAction:=caFree;
+end;
+
+procedure TxCadPaiF.PageControl1Changing(Sender: TObject;
+  var AllowChange: Boolean);
+begin
+  AllowChange:=False;
+end;
+
+procedure TxCadPaiF.DBGrid1DblClick(Sender: TObject);
+begin
+  PageControl1.PageIndex:=1;
+end;
+
 procedure TxCadPaiF.btnNovoClick(Sender: TObject);
 begin
   PageControl1.PageIndex:=1;
 end;
 
-procedure TxCadPaiF.btnGravarClick(Sender: TObject);
+procedure TxCadPaiF.btnSairClick(Sender: TObject);
 begin
-  PageControl1.PageIndex:=0;
+  Close;
 end;
 
-
-procedure TxCadPaiF.btnExcluirClick(Sender: TObject);
+procedure TxCadPaiF.btnGravarClick(Sender: TObject);
 begin
   PageControl1.PageIndex:=0;
 end;
@@ -74,30 +94,9 @@ begin
   PageControl1.PageIndex:=0;
 end;
 
-procedure TxCadPaiF.btnSairClick(Sender: TObject);
-begin
-  Close;
-end;
-
-procedure TxCadPaiF.DBGrid1DblClick(Sender: TObject);
-begin
-  PageControl1.PageIndex:=1;
-end;
-
-procedure TxCadPaiF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
-begin
-  CloseAction:=caFree;
-end;
-
-procedure TxCadPaiF.FormShow(Sender: TObject);
+procedure TxCadPaiF.btnExcluirClick(Sender: TObject);
 begin
   PageControl1.PageIndex:=0;
-end;
-
-procedure TxCadPaiF.PageControl1Changing(Sender: TObject;
-  var AllowChange: Boolean);
-begin
-  AllowChange:=False;
 end;
 
 end.

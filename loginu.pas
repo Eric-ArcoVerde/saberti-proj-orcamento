@@ -5,8 +5,8 @@ unit loginU;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, dataModuleU,
-  menuPrincipalU;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, DBCtrls,
+  ZDataset, ZAbstractRODataset, dataModuleU, menuPrincipalU, DB;
 
 type
 
@@ -15,8 +15,8 @@ type
   TloginF = class(TForm)
     btnEntrar: TButton;
     btnSair: TButton;
-    edtSenha: TEdit;
     edtUser: TEdit;
+    edtSenha: TEdit;
     Label1: TLabel;
     Label2: TLabel;
     procedure btnEntrarClick(Sender: TObject);
@@ -44,14 +44,14 @@ begin
    begin
       ShowMessage('Favor Preencha o Usuário!');
       edtUser.SetFocus;
-      Exit;
+      Exit(False);
    end;
 
    if (pSenha = '') then
    begin
       ShowMessage('Favor Preencha a Senha!');
       edtSenha.SetFocus;
-      Exit;
+      Exit(False);
    end;
 
    DataModuleF.zqGenerica.Close;
@@ -86,11 +86,12 @@ end;
 procedure TloginF.FormShow(Sender: TObject);
 begin
   edtUser.SetFocus;
+
 end;
 
 procedure TloginF.btnEntrarClick(Sender: TObject);
 begin
-  if ValidaUsuario(edtUser.Text,edtSenha.Text) = true then
+  if ValidaUsuario(edtUser.Text, edtSenha.Text) = true then
   begin
      MenuPrincipalF := TMenuPrincipalF.Create(Self);
      MenuPrincipalF.ShowModal;

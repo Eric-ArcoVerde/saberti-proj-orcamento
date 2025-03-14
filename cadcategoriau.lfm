@@ -1,46 +1,24 @@
 inherited cadCategoriaF: TcadCategoriaF
-  Left = 875
-  Top = 217
+  Left = 775
+  Top = 236
   Caption = 'Cadastro de Categoria'
   OnClose = FormClose
   OnShow = FormShow
   inherited PageControl1: TPageControl
-    Height = 706
-    Width = 1035
     OnChanging = PageControl1Changing
     inherited tsPesquisar: TTabSheet
-      ClientHeight = 673
-      ClientWidth = 1027
       inherited Panel1: TPanel
-        Width = 1027
-        ClientWidth = 1027
-        inherited Label1: TLabel
-          Height = 20
-          Width = 83
-        end
-        inherited edtPesq: TEdit
-          Height = 28
-        end
         inherited btnPesq: TSpeedButton
           OnClick = btnPesqClick
         end
       end
       inherited Panel2: TPanel
-        Top = 592
-        Width = 1027
-        ClientWidth = 1027
         TabOrder = 2
         inherited btnNovo: TBitBtn
           OnClick = btnNovoClick
         end
-        inherited btnSair: TBitBtn
-          Left = 912
-        end
       end
       inherited DBGrid1: TDBGrid
-        Height = 530
-        Top = 62
-        Width = 1027
         Columns = <        
           item
             Alignment = taCenter
@@ -64,12 +42,7 @@ inherited cadCategoriaF: TcadCategoriaF
       end
     end
     inherited tsCadastro: TTabSheet
-      ClientHeight = 673
-      ClientWidth = 1027
       inherited Panel3: TPanel
-        Top = 602
-        Width = 1027
-        ClientWidth = 1027
         TabOrder = 2
         inherited btnGravar: TBitBtn
           OnClick = btnGravarClick
@@ -78,11 +51,10 @@ inherited cadCategoriaF: TcadCategoriaF
           OnClick = btnEditarClick
         end
         inherited btnCancelar: TBitBtn
-          Left = 479
+          Left = 373
           OnClick = btnCancelarClick
         end
         inherited btnExcluir: TBitBtn
-          Left = 912
           OnClick = btnExcluirClick
         end
       end
