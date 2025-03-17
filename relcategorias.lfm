@@ -1,22 +1,21 @@
 object relCategoriasF: TrelCategoriasF
   Left = 486
-  Height = 235
+  Height = 188
   Top = 303
-  Width = 688
-  Caption = 'Relatório de Categorias'
-  ClientHeight = 235
-  ClientWidth = 688
-  DesignTimePPI = 120
+  Width = 550
+  Caption = 'Relatório das Categorias'
+  ClientHeight = 188
+  ClientWidth = 550
   OnClose = FormClose
   OnShow = FormShow
   Position = poDesktopCenter
   LCLVersion = '3.8.0.0'
   object btnImpressao: TBitBtn
-    Left = 80
-    Height = 81
-    Top = 30
-    Width = 460
-    Caption = 'Impressão de Relatório'
+    Left = 64
+    Height = 65
+    Top = 24
+    Width = 368
+    Caption = 'Impressão de Relatório das Categorias'
     Glyph.Data = {
       EE030000424DEE03000000000000360000002800000012000000110000000100
       180000000000B8030000C30E0000C30E00000000000000000000BFBFBF000000
@@ -61,8 +60,8 @@ object relCategoriasF: TrelCategoriasF
       'order by categoriaprodutoid'
     )
     Params = <>
-    Left = 503
-    Top = 144
+    Left = 402
+    Top = 115
     object zqRelCategoriascategoriaprodutoid: TZIntegerField
       FieldKind = fkData
       FieldName = 'categoriaprodutoid'
@@ -89,12 +88,12 @@ object relCategoriasF: TrelCategoriasF
     Options = []
     PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit, pbSettings, pbPageSetup]
     DataType = dtDataSet
-    Left = 91
-    Top = 144
+    Left = 73
+    Top = 115
   end
   object frDBDSRelCategorias: TfrDBDataSet
     DataSet = zqRelCategorias
-    Left = 288
-    Top = 144
+    Left = 230
+    Top = 115
   end
 end

@@ -14,7 +14,6 @@ type
 
   TxCadPaiF = class(TForm)
     btnGravar: TBitBtn;
-    btnEditar: TBitBtn;
     btnCancelar: TBitBtn;
     btnExcluir: TBitBtn;
     btnNovo: TBitBtn;

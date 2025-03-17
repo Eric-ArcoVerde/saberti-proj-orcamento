@@ -194,6 +194,7 @@
         <Filename Value="sobreu.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="sobreF"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="sobreU"/>
       </Unit>

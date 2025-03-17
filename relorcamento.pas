@@ -41,11 +41,15 @@ implementation
 
 { TrelOrcamentoF }
 
-procedure TrelOrcamentoF.FormClose(Sender: TObject;
-  var CloseAction: TCloseAction);
+procedure TrelOrcamentoF.FormShow(Sender: TObject);
+begin
+  zqRelOrc.Open;
+end;
+
+procedure TrelOrcamentoF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   zqRelOrc.Close;
-  CloseAction:=caFree;
+  CloseAction := caFree;
 end;
 
 procedure TrelOrcamentoF.btnImpressaoClick(Sender: TObject);
@@ -54,13 +58,6 @@ begin
   frRelOrc.PrepareReport;
   frRelOrc.ShowReport;
 end;
-
-procedure TrelOrcamentoF.FormShow(Sender: TObject);
-begin
-  zqRelOrc.Open;
-end;
-
-
 
 end.
 

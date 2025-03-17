@@ -7,6 +7,7 @@ object inserirItemF: TinserirItemF
   ClientHeight = 267
   ClientWidth = 383
   OnClose = FormClose
+  Position = poDesktopCenter
   LCLVersion = '3.8.0.0'
   object Label1: TLabel
     Left = 35
@@ -33,15 +34,15 @@ object inserirItemF: TinserirItemF
     Left = 128
     Height = 15
     Top = 152
-    Width = 46
-    Caption = 'Val. Unit.'
+    Width = 73
+    Caption = 'Val. Unit. (R$):'
   end
   object Label5: TLabel
     Left = 240
     Height = 15
     Top = 152
-    Width = 49
-    Caption = 'Val. Total:'
+    Width = 73
+    Caption = 'Val. Total (R$):'
   end
   object DBEdit1: TDBEdit
     Left = 35

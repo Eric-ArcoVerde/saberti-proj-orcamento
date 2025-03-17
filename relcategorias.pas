@@ -37,11 +37,15 @@ implementation
 
 { TrelCategoriasF }
 
-procedure TrelCategoriasF.FormClose(Sender: TObject;
-  var CloseAction: TCloseAction);
+procedure TrelCategoriasF.FormShow(Sender: TObject);
+begin
+  zqRelCategorias.Open;
+end;
+
+procedure TrelCategoriasF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   zqRelCategorias.Close;
-  CloseAction:=caFree;
+  CloseAction := caFree;
 end;
 
 procedure TrelCategoriasF.btnImpressaoClick(Sender: TObject);
@@ -49,11 +53,6 @@ begin
   frRelCategorias.LoadFromFile('relCategorias.lrf');
   frRelCategorias.PrepareReport;
   frRelCategorias.ShowReport;
-end;
-
-procedure TrelCategoriasF.FormShow(Sender: TObject);
-begin
-  zqRelCategorias.Open;
 end;
 
 end.

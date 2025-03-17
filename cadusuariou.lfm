@@ -1,5 +1,5 @@
 inherited cadUsuariosF: TcadUsuariosF
-  Left = 490
+  Left = 633
   Top = 193
   Caption = 'Cadastro de Usuário'
   OnClose = FormClose
@@ -19,6 +19,7 @@ inherited cadUsuariosF: TcadUsuariosF
       inherited DBGrid1: TDBGrid
         Columns = <        
           item
+            Alignment = taCenter
             PickList.Strings = (            )
             Title.Alignment = taCenter
             Title.Font.Style = [fsBold]
@@ -26,6 +27,7 @@ inherited cadUsuariosF: TcadUsuariosF
             FieldName = 'id'
           end        
           item
+            Alignment = taCenter
             PickList.Strings = (            )
             Title.Alignment = taCenter
             Title.Font.Style = [fsBold]
@@ -41,6 +43,7 @@ inherited cadUsuariosF: TcadUsuariosF
             FieldName = 'nome_completo'
           end>
         DataSource = dsUsuario
+        OnDblClick = DBGrid1DblClick
       end
     end
     inherited tsCadastro: TTabSheet
@@ -48,9 +51,6 @@ inherited cadUsuariosF: TcadUsuariosF
         TabOrder = 4
         inherited btnGravar: TBitBtn
           OnClick = btnGravarClick
-        end
-        inherited btnEditar: TBitBtn
-          OnClick = btnEditarClick
         end
         inherited btnCancelar: TBitBtn
           OnClick = btnCancelarClick
@@ -188,8 +188,8 @@ inherited cadUsuariosF: TcadUsuariosF
         Left = 300
         Height = 15
         Top = 138
-        Width = 55
-        Caption = '(6 dígitos)'
+        Width = 100
+        Caption = '(mínimo 6 dígitos)'
         Font.Style = [fsBold]
         ParentFont = False
       end

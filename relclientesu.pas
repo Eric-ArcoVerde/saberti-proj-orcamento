@@ -39,25 +39,23 @@ implementation
 
 { TRelClientesF }
 
+procedure TRelClientesF.FormShow(Sender: TObject);
+begin
+  zqRelCliente.Open;
+end;
+
+procedure TRelClientesF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  zqRelCliente.Close;
+  CloseAction := caFree;
+end;
+
 procedure TRelClientesF.btnImpressaoClick(Sender: TObject);
 begin
   frRelCliente.LoadFromFile('relCliente.lrf');
   frRelCliente.PrepareReport;
   frRelCliente.ShowReport;
 end;
-
-procedure TRelClientesF.FormClose(Sender: TObject; var CloseAction: TCloseAction
-  );
-begin
-  zqRelCliente.Close;
-  CloseAction:=caFree;
-end;
-
-procedure TRelClientesF.FormShow(Sender: TObject);
-begin
-  zqRelCliente.Open;
-end;
-
 
 end.
 

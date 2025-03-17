@@ -5,15 +5,18 @@ unit menuPrincipalU;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, cadCategoriaU,
-  cadProdutosU, cadClienteU, cadUsuarioU, orcamentoU, relCategorias, relProdutos,
-  relClientesU, relOrcamento,relOrcItemU, sobreU;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, ExtCtrls,
+  StdCtrls, cadCategoriaU, cadProdutosU, cadClienteU, cadUsuarioU, orcamentoU,
+  relCategorias, relProdutos, relClientesU, relOrcamento, sobreU;
 
 type
 
   { TMenuPrincipalF }
 
   TMenuPrincipalF = class(TForm)
+    Image1: TImage;
+    Label1: TLabel;
+    Label2: TLabel;
     MainMenu1: TMainMenu;
     miRelOrcamento: TMenuItem;
     miRelCategorias: TMenuItem;
@@ -58,67 +61,67 @@ implementation
 
 procedure TMenuPrincipalF.miCadCategoriaClick(Sender: TObject);
 begin
-  cadCategoriaF:=TcadCategoriaF.Create(Self);
+  cadCategoriaF := TcadCategoriaF.Create(Self);
   cadCategoriaF.ShowModal;
 end;
 
 procedure TMenuPrincipalF.miCadClienteClick(Sender: TObject);
 begin
-  cadClienteF:=TcadClienteF.Create(Self);
+  cadClienteF := TcadClienteF.Create(Self);
   cadClienteF.ShowModal;
 end;
 
 procedure TMenuPrincipalF.miCadProdutosClick(Sender: TObject);
 begin
-  cadProdutosF:=TcadProdutosF.Create(Self);
+  cadProdutosF := TcadProdutosF.Create(Self);
   cadProdutosF.ShowModal;
 end;
 
 procedure TMenuPrincipalF.miCadUsuariosClick(Sender: TObject);
 begin
-  cadUsuariosF:=TcadUsuariosF.Create(Self);
+  cadUsuariosF := TcadUsuariosF.Create(Self);
   cadUsuariosF.ShowModal;
 end;
 
 procedure TMenuPrincipalF.miOrcamentoClick(Sender: TObject);
 begin
-  orcamentoF:=TorcamentoF.Create(Self);
+  orcamentoF := TorcamentoF.Create(Self);
   orcamentoF.ShowModal;
 end;
 
 procedure TMenuPrincipalF.miRelCategoriasClick(Sender: TObject);
 begin
-  relCategoriasF:=TrelCategoriasF.Create(Self);
+  relCategoriasF := TrelCategoriasF.Create(Self);
   relCategoriasF.ShowModal;
 end;
 
 procedure TMenuPrincipalF.miRelClientesClick(Sender: TObject);
 begin
-  RelClientesF:=TRelClientesF.Create(Self);
+  RelClientesF := TRelClientesF.Create(Self);
   RelClientesF.ShowModal;
-end;
-
-procedure TMenuPrincipalF.miRelOrcamentoClick(Sender: TObject);
-begin
-  relOrcamentoF:=TrelOrcamentoF.Create(Self);
-  relOrcamentoF.ShowModal;
 end;
 
 procedure TMenuPrincipalF.miRelProdutosClick(Sender: TObject);
 begin
-  relProdutosF:=TrelProdutosF.Create(Self);
+  relProdutosF := TrelProdutosF.Create(Self);
   relProdutosF.ShowModal;
 end;
 
-procedure TMenuPrincipalF.miSairClick(Sender: TObject);
+procedure TMenuPrincipalF.miRelOrcamentoClick(Sender: TObject);
 begin
-  Application.Terminate;
+  relOrcamentoF := TrelOrcamentoF.Create(Self);
+  relOrcamentoF.ShowModal;
 end;
 
 procedure TMenuPrincipalF.miSobreClick(Sender: TObject);
 begin
   sobreF := TsobreF.Create(Self);
   sobreF.ShowModal;
+end;
+
+procedure TMenuPrincipalF.miSairClick(Sender: TObject);
+begin
+  Application.Terminate;
 end;
 
 end.

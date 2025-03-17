@@ -40,46 +40,45 @@ implementation
 uses
   cadProdutosU;
 
-{$R *.lfm}
+  {$R *.lfm}
 
-{ TpesqCategoriaF }
+  { TpesqCategoriaF }
+
+procedure TpesqCategoriaF.FormShow(Sender: TObject);
+begin
+  zqCategoriaAux.Open;
+end;
+
+procedure TpesqCategoriaF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  zqCategoriaAux.Close;
+  CloseAction := caFree;
+end;
 
 procedure TpesqCategoriaF.btnPesquisarClick(Sender: TObject);
-var AuxWhere : String;
+var
+  AuxWhere: string;
 begin
-   if edtPesquisar.Text = '' then
-     AuxWhere := '1 = 1'
-   else
-       AuxWhere := 'CATEGORIAPRODUTOID = '+edtPesquisar.Text;
+  if edtPesquisar.Text = '' then
+    AuxWhere := '1 = 1'
+  else
+    AuxWhere := 'CATEGORIAPRODUTOID = ' + edtPesquisar.Text;
 
   zqCategoriaAux.Close;
   zqCategoriaAux.SQL.Text :=
-        'SELECT ' +
-        'CATEGORIAPRODUTOID, ' +
-        'DS_CATEGORIA_PRODUTO ' +
-        'FROM CATEGORIA_PRODUTO ' +
-        'WHERE '+AuxWhere+' '+
-        'ORDER BY CATEGORIAPRODUTOID';
+    'SELECT ' + 'CATEGORIAPRODUTOID, ' + 'DS_CATEGORIA_PRODUTO ' +
+    'FROM CATEGORIA_PRODUTO ' + 'WHERE ' + AuxWhere + ' ' +
+    'ORDER BY CATEGORIAPRODUTOID';
   zqCategoriaAux.Open;
 
 end;
 
 procedure TpesqCategoriaF.DBGrid1DblClick(Sender: TObject);
 begin
-   cadProdutosF.zqProdutoscategoriaprodutoid.AsInteger := zqCategoriaAuxcategoriaprodutoid.AsInteger;
-   cadProdutosF.LbCat.Caption:=zqCategoriaAuxds_categoria_produto.AsString;
-   Close;
-end;
-
-procedure TpesqCategoriaF.FormClose(Sender: TObject;
-  var CloseAction: TCloseAction);
-begin
-  CloseAction:=caFree;
-end;
-
-procedure TpesqCategoriaF.FormShow(Sender: TObject);
-begin
-  zqCategoriaAux.Open;
+  cadProdutosF.zqProdutoscategoriaprodutoid.AsInteger :=
+    zqCategoriaAuxcategoriaprodutoid.AsInteger;
+  cadProdutosF.LbCat.Caption := zqCategoriaAuxds_categoria_produto.AsString;
+  Close;
 end;
 
 end.

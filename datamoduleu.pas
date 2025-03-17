@@ -18,7 +18,7 @@ type
   private
 
   public
-    function getSequence(const pNomeSequence:String):String;
+    function getSequence(const pNomeSequence: string): string;
   end;
 
 var
@@ -41,18 +41,18 @@ begin
   ZConnection1.Protocol := 'postgresql';
 end;
 
-function TDataModuleF.getSequence(const pNomeSequence: String): String;
+function TDataModuleF.getSequence(const pNomeSequence: string): string;
 begin
-     Result := '';
- try
-     zqGenerica.close;
-     zqGenerica.SQL.Clear;
-     zqGenerica.SQL.Add('SELECT NEXTVAL(' + QuotedStr(pNomeSequence) + ') AS CODIGO');
-     zqGenerica.Open;
-     Result := zqGenerica.FieldByName('CODIGO').AsString;
- finally
-   zqGenerica.Close;
- end;
+  Result := '';
+  try
+    zqGenerica.Close;
+    zqGenerica.SQL.Clear;
+    zqGenerica.SQL.Add('SELECT NEXTVAL(' + QuotedStr(pNomeSequence) + ') AS CODIGO');
+    zqGenerica.Open;
+    Result := zqGenerica.FieldByName('CODIGO').AsString;
+  finally
+    zqGenerica.Close;
+  end;
 end;
 
 end.

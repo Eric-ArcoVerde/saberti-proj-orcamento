@@ -42,11 +42,15 @@ implementation
 
 { TrelProdutosF }
 
-procedure TrelProdutosF.FormClose(Sender: TObject; var CloseAction: TCloseAction
-  );
+procedure TrelProdutosF.FormShow(Sender: TObject);
+begin
+  zqRelProd.Open;
+end;
+
+procedure TrelProdutosF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   zqRelProd.Close;
-  CloseAction:=caFree;
+  CloseAction := caFree;
 end;
 
 procedure TrelProdutosF.btnImpressaoClick(Sender: TObject);
@@ -54,11 +58,6 @@ begin
   frRelProd.LoadFromFile('relProdutos.lrf');
   frRelProd.PrepareReport;
   frRelProd.ShowReport;
-end;
-
-procedure TrelProdutosF.FormShow(Sender: TObject);
-begin
-  zqRelProd.Open;
 end;
 
 end.

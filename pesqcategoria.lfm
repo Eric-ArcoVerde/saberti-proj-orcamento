@@ -1,22 +1,23 @@
 object pesqCategoriaF: TpesqCategoriaF
-  Left = 1075
-  Height = 532
-  Top = 172
-  Width = 545
+  Left = 393
+  Height = 375
+  Top = 244
+  Width = 537
   Caption = 'Pesquisar Categoria'
-  ClientHeight = 532
-  ClientWidth = 545
+  ClientHeight = 375
+  ClientWidth = 537
   OnClose = FormClose
   OnShow = FormShow
+  Position = poDesktopCenter
   LCLVersion = '3.8.0.0'
   object Panel1: TPanel
     Left = 0
     Height = 50
     Top = 0
-    Width = 545
+    Width = 537
     Align = alTop
     ClientHeight = 50
-    ClientWidth = 545
+    ClientWidth = 537
     TabOrder = 0
     object Label1: TLabel
       Left = 44
@@ -58,19 +59,21 @@ object pesqCategoriaF: TpesqCategoriaF
   end
   object DBGrid1: TDBGrid
     Left = 0
-    Height = 482
+    Height = 325
     Top = 50
-    Width = 545
+    Width = 537
     Align = alClient
     Color = clWindow
     Columns = <    
       item
+        Alignment = taCenter
         Title.Alignment = taCenter
         Title.Font.Style = [fsBold]
         Title.Caption = 'ID'
         FieldName = 'categoriaprodutoid'
       end    
       item
+        Alignment = taCenter
         Title.Alignment = taCenter
         Title.Font.Style = [fsBold]
         Title.Caption = 'Descrição Categoria'
@@ -89,6 +92,7 @@ object pesqCategoriaF: TpesqCategoriaF
   end
   object zqCategoriaAux: TZQuery
     Connection = DataModuleF.ZConnection1
+    Active = True
     SQL.Strings = (
       'select * from categoria_produto'
       'order by categoriaprodutoid'

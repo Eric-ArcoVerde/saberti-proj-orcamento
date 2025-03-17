@@ -1,6 +1,6 @@
 inherited cadCategoriaF: TcadCategoriaF
-  Left = 775
-  Top = 236
+  Left = 404
+  Top = 140
   Caption = 'Cadastro de Categoria'
   OnClose = FormClose
   OnShow = FormShow
@@ -15,7 +15,11 @@ inherited cadCategoriaF: TcadCategoriaF
       inherited Panel2: TPanel
         TabOrder = 2
         inherited btnNovo: TBitBtn
+          Top = 32
           OnClick = btnNovoClick
+        end
+        inherited btnSair: TBitBtn
+          Top = 32
         end
       end
       inherited DBGrid1: TDBGrid
@@ -39,42 +43,43 @@ inherited cadCategoriaF: TcadCategoriaF
           end>
         DataSource = dsCategorias
         TabOrder = 1
+        OnDblClick = DBGrid1DblClick
       end
     end
     inherited tsCadastro: TTabSheet
       inherited Panel3: TPanel
         TabOrder = 2
         inherited btnGravar: TBitBtn
+          Top = 22
           OnClick = btnGravarClick
         end
-        inherited btnEditar: TBitBtn
-          OnClick = btnEditarClick
-        end
         inherited btnCancelar: TBitBtn
-          Left = 373
+          Left = 224
+          Top = 22
           OnClick = btnCancelarClick
         end
         inherited btnExcluir: TBitBtn
+          Top = 22
           OnClick = btnExcluirClick
         end
       end
       object Label2: TLabel[1]
         Left = 64
-        Height = 20
+        Height = 15
         Top = 28
-        Width = 18
+        Width = 14
         Caption = 'ID:'
       end
       object Label3: TLabel[2]
         Left = 24
-        Height = 20
+        Height = 15
         Top = 60
-        Width = 68
+        Width = 54
         Caption = 'Descrição:'
       end
       object edtID: TDBEdit[3]
-        Left = 90
-        Height = 28
+        Left = 80
+        Height = 23
         Top = 24
         Width = 46
         DataField = 'categoriaprodutoid'
@@ -86,8 +91,8 @@ inherited cadCategoriaF: TcadCategoriaF
         TabOrder = 0
       end
       object edtDesc: TDBEdit[4]
-        Left = 90
-        Height = 28
+        Left = 80
+        Height = 23
         Top = 56
         Width = 104
         DataField = 'ds_categoria_produto'

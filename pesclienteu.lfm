@@ -1,21 +1,23 @@
 object pesqClienteF: TpesqClienteF
-  Left = 631
+  Left = 498
   Height = 511
-  Top = 185
-  Width = 560
+  Top = 128
+  Width = 577
   Caption = 'Pesquisar Cliente'
   ClientHeight = 511
-  ClientWidth = 560
+  ClientWidth = 577
   OnClose = FormClose
+  OnShow = FormShow
+  Position = poDesktopCenter
   LCLVersion = '3.8.0.0'
   object Panel1: TPanel
     Left = 0
     Height = 58
     Top = 0
-    Width = 560
+    Width = 577
     Align = alTop
     ClientHeight = 58
-    ClientWidth = 560
+    ClientWidth = 577
     TabOrder = 0
     object Label1: TLabel
       Left = 24
@@ -59,21 +61,23 @@ object pesqClienteF: TpesqClienteF
     Left = 0
     Height = 453
     Top = 58
-    Width = 560
+    Width = 577
     Align = alClient
     Color = clWindow
     Columns = <    
       item
+        Alignment = taCenter
         Title.Alignment = taCenter
         Title.Font.Style = [fsBold]
         Title.Caption = 'ID'
         FieldName = 'clienteid'
       end    
       item
+        Alignment = taCenter
         Title.Alignment = taCenter
         Title.Font.Style = [fsBold]
         Title.Caption = 'CPF/CNPJ'
-        Width = 100
+        Width = 150
         FieldName = 'cpf_cnpj_cliente'
       end    
       item
@@ -94,6 +98,7 @@ object pesqClienteF: TpesqClienteF
   end
   object zqClienteAux: TZQuery
     Connection = DataModuleF.ZConnection1
+    Active = True
     SQL.Strings = (
       'select clienteid,'
       'tipo_cliente,'

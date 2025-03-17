@@ -27,6 +27,7 @@ type
     procedure btnPesquisarClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormShow(Sender: TObject);
   private
 
   public
@@ -41,41 +42,42 @@ implementation
 uses
   orcamentoU;
 
-{$R *.lfm}
+  {$R *.lfm}
 
-{ TpesqClienteF }
+  { TpesqClienteF }
 
-procedure TpesqClienteF.FormClose(Sender: TObject; var CloseAction: TCloseAction
-  );
+procedure TpesqClienteF.FormShow(Sender: TObject);
 begin
-  CloseAction:=caFree;
+  zqClienteAux.Open;
+end;
+
+procedure TpesqClienteF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  zqClienteAux.Close;
+  CloseAction := caFree;
 end;
 
 procedure TpesqClienteF.btnPesquisarClick(Sender: TObject);
-var AuxWhere : String;
+var
+  AuxWhere: string;
 begin
   if edtPesqCliente.Text = '' then
-     AuxWhere := '1 = 1'
-   else
-       AuxWhere := 'CLIENTEID = '+edtPesqCliente.Text;
+    AuxWhere := '1 = 1'
+  else
+    AuxWhere := 'CLIENTEID = ' + edtPesqCliente.Text;
 
   zqClienteAux.Close;
   zqClienteAux.SQL.Text :=
-        'SELECT ' +
-        'CLIENTEID, ' +
-        'TIPO_CLIENTE, ' +
-        'CPF_CNPJ_CLIENTE, ' +
-        'NOME_CLIENTE ' +
-        'FROM CLIENTE ' +
-        'WHERE '+AuxWhere+' '+
-        'ORDER BY CLIENTEID';
+    'SELECT ' + 'CLIENTEID, ' + 'TIPO_CLIENTE, ' +
+    'CPF_CNPJ_CLIENTE, ' + 'NOME_CLIENTE ' + 'FROM CLIENTE ' +
+    'WHERE ' + AuxWhere + ' ' + 'ORDER BY CLIENTEID';
   zqClienteAux.Open;
 end;
 
 procedure TpesqClienteF.DBGrid1DblClick(Sender: TObject);
 begin
-  orcamentoF.zqOrcamentoclienteid.AsInteger:=zqClienteAuxclienteid.AsInteger;
-  orcamentoF.lbDescCliente.Caption:=zqClienteAuxnome_cliente.AsString;
+  orcamentoF.zqOrcamentoclienteid.AsInteger := zqClienteAuxclienteid.AsInteger;
+  orcamentoF.lbDescCliente.Caption := zqClienteAuxnome_cliente.AsString;
   Close;
 end;
 

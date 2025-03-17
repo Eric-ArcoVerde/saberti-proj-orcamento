@@ -1,13 +1,14 @@
 object pesqProdutosF: TpesqProdutosF
-  Left = 1118
+  Left = 559
   Height = 451
-  Top = 103
+  Top = 124
   Width = 497
   Caption = 'Pesquisar Produto'
   ClientHeight = 451
   ClientWidth = 497
   OnClose = FormClose
   OnShow = FormShow
+  Position = poDesktopCenter
   LCLVersion = '3.8.0.0'
   object Panel1: TPanel
     Left = 0
@@ -82,7 +83,7 @@ object pesqProdutosF: TpesqProdutosF
       item
         Title.Alignment = taCenter
         Title.Font.Style = [fsBold]
-        Title.Caption = 'Vl. Unitário'
+        Title.Caption = 'Vl. Unitário (R$)'
         Width = 150
         FieldName = 'vl_venda_produto'
       end>
@@ -100,6 +101,7 @@ object pesqProdutosF: TpesqProdutosF
     SQL.Strings = (
       'select *'
       'from produto'
+      'where status_produto = ''ATIVO'''
       'order by produtoid; '
     )
     Params = <>
@@ -137,44 +139,6 @@ object pesqProdutosF: TpesqProdutosF
       MaxValue = 0
       MinValue = 0
       Size = 2
-    end
-    object zqPesqProdcategoriaprodutoid: TZIntegerField
-      FieldKind = fkData
-      FieldName = 'categoriaprodutoid'
-      Index = 3
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = True
-    end
-    object zqPesqProdobs_produto: TZRawStringField
-      FieldKind = fkData
-      FieldName = 'obs_produto'
-      Index = 4
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 300
-    end
-    object zqPesqProddt_cadastro_produto: TZDateTimeField
-      FieldKind = fkData
-      FieldName = 'dt_cadastro_produto'
-      Index = 5
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = True
-    end
-    object zqPesqProdstatus_produto: TZRawStringField
-      FieldKind = fkData
-      FieldName = 'status_produto'
-      Index = 6
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = True
-      Size = 10
     end
   end
 end

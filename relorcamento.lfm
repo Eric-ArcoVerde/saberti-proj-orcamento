@@ -1,21 +1,21 @@
 object relOrcamentoF: TrelOrcamentoF
   Left = 444
-  Height = 234
+  Height = 187
   Top = 247
-  Width = 668
-  Caption = 'Relatório de Orçamento'
-  ClientHeight = 234
-  ClientWidth = 668
-  DesignTimePPI = 120
+  Width = 534
+  Caption = 'Relatório dos Orçamento'
+  ClientHeight = 187
+  ClientWidth = 534
   OnClose = FormClose
   OnShow = FormShow
+  Position = poDesktopCenter
   LCLVersion = '3.8.0.0'
   object btnImpressao: TBitBtn
-    Left = 80
-    Height = 81
-    Top = 30
-    Width = 460
-    Caption = 'Impressão de Relatório'
+    Left = 64
+    Height = 65
+    Top = 24
+    Width = 368
+    Caption = 'Impressão de Relatório dos Orçamentos'
     Glyph.Data = {
       EE030000424DEE03000000000000360000002800000012000000110000000100
       180000000000B8030000C30E0000C30E00000000000000000000BFBFBF000000
@@ -68,8 +68,8 @@ object relOrcamentoF: TrelOrcamentoF
       'order by orcamentoid;'
     )
     Params = <>
-    Left = 496
-    Top = 144
+    Left = 397
+    Top = 115
     object zqRelOrcorcamentoid: TZIntegerField
       FieldKind = fkData
       FieldName = 'orcamentoid'
@@ -133,8 +133,8 @@ object relOrcamentoF: TrelOrcamentoF
   end
   object frDBDSRelOrc: TfrDBDataSet
     DataSet = zqRelOrc
-    Left = 296
-    Top = 144
+    Left = 237
+    Top = 115
   end
   object frRelOrc: TfrReport
     Dataset = frDBDSRelOrc
@@ -142,7 +142,7 @@ object relOrcamentoF: TrelOrcamentoF
     Options = []
     PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit, pbSettings, pbPageSetup]
     DataType = dtDataSet
-    Left = 112
-    Top = 144
+    Left = 90
+    Top = 115
   end
 end

@@ -1,22 +1,21 @@
 object relProdutosF: TrelProdutosF
   Left = 444
-  Height = 244
+  Height = 195
   Top = 235
-  Width = 653
-  Caption = 'Relátorio de Produtos'
-  ClientHeight = 244
-  ClientWidth = 653
-  DesignTimePPI = 120
+  Width = 522
+  Caption = 'Relátorio dos Produtos'
+  ClientHeight = 195
+  ClientWidth = 522
   OnClose = FormClose
   OnShow = FormShow
   Position = poDesktopCenter
   LCLVersion = '3.8.0.0'
   object btnImpressao: TBitBtn
-    Left = 80
-    Height = 81
-    Top = 30
-    Width = 460
-    Caption = 'Impressão de Relatório'
+    Left = 64
+    Height = 65
+    Top = 24
+    Width = 368
+    Caption = 'Impressão de Relatório dos Produtos'
     Glyph.Data = {
       EE030000424DEE03000000000000360000002800000012000000110000000100
       180000000000B8030000C30E0000C30E00000000000000000000BFBFBF000000
@@ -60,13 +59,13 @@ object relProdutosF: TrelProdutosF
     Options = []
     PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit, pbSettings, pbPageSetup]
     DataType = dtDataSet
-    Left = 141
-    Top = 149
+    Left = 113
+    Top = 119
   end
   object frDBDSRelProd: TfrDBDataSet
     DataSet = zqRelProd
-    Left = 280
-    Top = 149
+    Left = 224
+    Top = 119
   end
   object zqRelProd: TZQuery
     Connection = DataModuleF.ZConnection1
@@ -84,8 +83,8 @@ object relProdutosF: TrelProdutosF
       'order by p.produtoid; '
     )
     Params = <>
-    Left = 424
-    Top = 149
+    Left = 339
+    Top = 119
     object zqRelProdprodutoid: TZIntegerField
       FieldKind = fkData
       FieldName = 'produtoid'

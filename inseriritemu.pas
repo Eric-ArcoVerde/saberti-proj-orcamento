@@ -45,19 +45,20 @@ implementation
 uses
   orcamentoU;
 
-{$R *.lfm}
+  {$R *.lfm}
 
-{ TinserirItemF }
+  { TinserirItemF }
+
+
+procedure TinserirItemF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  CloseAction := caFree;
+end;
 
 procedure TinserirItemF.btnPesqClick(Sender: TObject);
 begin
-  pesqProdutosF:=TpesqProdutosF.Create(Self);
+  pesqProdutosF := TpesqProdutosF.Create(Self);
   pesqProdutosF.ShowModal;
-end;
-
-procedure TinserirItemF.edtQtdeExit(Sender: TObject);
-begin
-    orcamentoF.zqOrcItemvl_total.AsFloat := orcamentoF.zqOrcItemqt_produto.AsFloat * orcamentoF.zqOrcItemvl_unitario.AsFloat;
 end;
 
 procedure TinserirItemF.btnInserirClick(Sender: TObject);
@@ -81,10 +82,10 @@ begin
   Close;
 end;
 
-procedure TinserirItemF.FormClose(Sender: TObject; var CloseAction: TCloseAction
-  );
+procedure TinserirItemF.edtQtdeExit(Sender: TObject);
 begin
-  CloseAction:=caFree;
+  orcamentoF.zqOrcItemvl_total.AsFloat :=
+    orcamentoF.zqOrcItemqt_produto.AsFloat * orcamentoF.zqOrcItemvl_unitario.AsFloat;
 end;
 
 end.
